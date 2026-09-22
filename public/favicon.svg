@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kudamalana leaf mark">
+  <rect width="64" height="64" rx="14" fill="#12382f"/>
+  <path d="M18 38c15-2 24-13 29-25 1 18-8 32-25 38-5 2-9-1-8-5 1-4 3-6 4-8Z" fill="#d6a84f"/>
+  <path d="M22 42c8-8 16-14 25-19" stroke="#fbf6e8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="21" cy="43" r="3" fill="#fbf6e8"/>
+</svg>
