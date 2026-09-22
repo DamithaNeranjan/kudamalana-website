@@ -53,7 +53,9 @@ function PageShell({ children }) {
     <>
       <header className="site-header">
         <Link className="brand" to="/" aria-label="Kudamalana home">
-          <span className="brand-mark"><Leaf size={22} aria-hidden="true" /></span>
+          <span className="brand-mark">
+            <img src="/brand/kudamalana-logo.png" alt="" aria-hidden="true" />
+          </span>
           <span>
             <strong>Kudamalana</strong>
             <small>Tea Estate</small>
@@ -95,7 +97,9 @@ function SiteFooter() {
     <footer className="site-footer">
       <div>
         <Link className="footer-brand" to="/">
-          <Leaf size={24} aria-hidden="true" />
+          <span className="footer-logo">
+            <img src="/brand/kudamalana-logo.png" alt="" aria-hidden="true" />
+          </span>
           <span>{estate.name}</span>
         </Link>
         <p>
