@@ -584,6 +584,25 @@ function ProductGrid({ limit }) {
 }
 
 function ProductVisual({ product, large = false }) {
+  const primaryImage = product.images?.[0];
+
+  if (primaryImage) {
+    return (
+      <figure className={`product-photo ${product.theme} ${large ? "large" : ""}`}>
+        <div className="product-photo-stage">
+          <img src={primaryImage.src} alt={primaryImage.alt} loading={large ? "eager" : "lazy"} />
+        </div>
+        {large && product.images.length > 1 && (
+          <div className="product-photo-strip" aria-label={`${product.name} product images`}>
+            {product.images.map((image) => (
+              <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />
+            ))}
+          </div>
+        )}
+      </figure>
+    );
+  }
+
   return (
     <div className={`product-visual ${product.theme} ${large ? "large" : ""}`} aria-hidden="true">
       <span>{product.name.split(" ")[0]}</span>

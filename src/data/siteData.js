@@ -108,7 +108,8 @@ export const products = [
       "Kudamalana describes Easkin's Choice as 100% organic black tea. Third-party organic certificate details are not shown until the certifier, scope, number and validity dates are available.",
     facts: ["Black tea", "Organic practice claim", "Package sizes to be confirmed"],
     aliases: [],
-    brew: "Detailed brewing guidance should be confirmed from current product documentation."
+    brew: "Detailed brewing guidance should be confirmed from current product documentation.",
+    images: []
   },
   {
     id: "KDM-CB-BLK-SO",
@@ -122,7 +123,17 @@ export const products = [
       "Its name honors Telikada Palliya Guruge Charles, who the estate says took stewardship of Kudamalana after its founder.",
     facts: ["Black tea", "Unblended", "Single-source", "High liquor"],
     aliases: ["Brew by Charles"],
-    brew: "Use approved cupping notes before adding precise sensory descriptors."
+    brew: "Use approved cupping notes before adding precise sensory descriptors.",
+    images: [
+      {
+        src: "/product-photos/brew-by-charles-tin-150g.png",
+        alt: "Brew by Charlie's premium quality Pure Ceylon Tea tin"
+      },
+      {
+        src: "/product-photos/charles-brew-pouch.png",
+        alt: "Charles Brew premium quality Pure Ceylon Tea pouch"
+      }
+    ]
   },
   {
     id: "KDM-ET-BLK-BLD",
@@ -136,7 +147,17 @@ export const products = [
       "The estate describes the tea around distinctive taste, richness and fresh-tea aroma.",
     facts: ["Black tea", "Blended", "Fresh-tea aroma", "Retail spelling to confirm from packaging"],
     aliases: ["Eddie's Taste"],
-    brew: "Exact grade, ingredients and package formats remain to be confirmed."
+    brew: "Exact grade, ingredients and package formats remain to be confirmed.",
+    images: [
+      {
+        src: "/product-photos/eddys-taste-pouch-200g.png",
+        alt: "Eddy's Taste premium quality Pure Ceylon Tea packet"
+      },
+      {
+        src: "/product-photos/eddies-taste-kraft-pouch.png",
+        alt: "Eddie's Taste Kudamalana Tea Factory kraft pouch"
+      }
+    ]
   },
   {
     id: "KDM-KK-BLK-DLY",
@@ -150,7 +171,13 @@ export const products = [
       "Package format, grades and current retail pricing are not listed in the reviewed public material.",
     facts: ["Black tea", "Everyday cup", "High liquor", "Pricing to be confirmed"],
     aliases: [],
-    brew: "Add serving guidance after the estate confirms product-specific brewing advice."
+    brew: "Add serving guidance after the estate confirms product-specific brewing advice.",
+    images: [
+      {
+        src: "/product-photos/kudamalana-kahata-50g.png",
+        alt: "Kudamalana Kahata BOPF tea packet"
+      }
+    ]
   }
 ];
 
