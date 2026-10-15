@@ -15,25 +15,62 @@ export const estate = {
     { label: "Food safety", value: "ISO 22000:2018" },
     { label: "Staff", value: "30+" },
     { label: "Supplier network", value: "300+" }
-  ],
-  claimNote:
-    "Commercial details that are not yet documented are intentionally left unclaimed."
+  ]
 };
 
 export const images = {
   landscape: {
-    src: "https://images.pexels.com/photos/36847094/pexels-photo-36847094.jpeg?auto=compress&cs=tinysrgb&w=1800",
-    alt: "Green tea landscape in Sri Lanka",
-    caption: "Tea landscape in Sri Lanka. Illustrative stock photograph; not photographed at Kudamalana.",
-    source: "Pexels photograph by Thilina Alagiyawanna"
+    src: "/factory-ai/kudamalana-homepage-hero-v2.webp",
+    alt: "Aerial view of Kudamalana Tea Factory surrounded by greenery",
+    caption: "Kudamalana Tea Factory in Thalgaswala, Galle.",
+    source: "Kudamalana Tea Estate"
   },
   hills: {
-    src: "https://images.pexels.com/photos/36847090/pexels-photo-36847090.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    alt: "Lush Sri Lankan tea plantation landscape",
-    caption: "Sri Lankan tea landscape. Illustrative image; not photographed at Kudamalana.",
-    source: "Pexels photograph by Thilina Alagiyawanna"
+    src: "/factory-ai/kudamalana-estate-panorama.webp",
+    alt: "Kudamalana Tea Factory among coconut palms and tea fields",
+    caption: "Kudamalana Tea Factory and the surrounding Ruhuna landscape.",
+    source: "Kudamalana Tea Estate"
+  },
+  factoryExterior: {
+    src: "/factory-ai/kudamalana-factory-exterior.webp",
+    alt: "Exterior of Kudamalana Tea Factory",
+    caption: "The exterior of Kudamalana Tea Factory.",
+    source: "Kudamalana Tea Estate"
   }
 };
+
+export const factoryGallery = [
+  {
+    src: "/factory-ai/kudamalana-factory-aerial-hero.webp",
+    alt: "Aerial view of Kudamalana Tea Factory surrounded by greenery",
+    title: "Factory in the Ruhuna landscape"
+  },
+  {
+    src: "/factory-ai/kudamalana-factory-aerial-wide.webp",
+    alt: "Wide drone view of Kudamalana Tea Factory and surrounding vegetation",
+    title: "Aerial factory approach"
+  },
+  {
+    src: "/factory-ai/kudamalana-solar-roof-aerial.webp",
+    alt: "Aerial view of Kudamalana Tea Factory roof with solar panels",
+    title: "Solar roof and production buildings"
+  },
+  {
+    src: "/factory-ai/kudamalana-solar-roof-close.webp",
+    alt: "Closer drone view of Kudamalana Tea Factory roof and solar panels",
+    title: "Modernized factory roofline"
+  },
+  {
+    src: "/factory-ai/kudamalana-estate-panorama.webp",
+    alt: "Kudamalana Tea Factory among tea fields, palms and hills",
+    title: "Estate panorama"
+  },
+  {
+    src: "/factory-ai/kudamalana-factory-exterior.webp",
+    alt: "Ground-level exterior view of Kudamalana Tea Factory",
+    title: "Factory exterior"
+  }
+];
 
 export const navItems = [
   { path: "/", label: "Home" },
@@ -81,7 +118,7 @@ export const seo = {
   "/trade": {
     title: "Wholesale Ceylon Tea | Kudamalana MF0259",
     description:
-      "Enquire about wholesale supply from Kudamalana, a Ruhuna low-grown black-tea factory with stated monthly capacity of up to 20,000 kg."
+      "Enquire about wholesale supply from Kudamalana, a Ruhuna low-grown black-tea factory with monthly capacity of up to 20,000 kg."
   },
   "/visit": {
     title: "Visit Kudamalana Tea Factory | Galle, Sri Lanka",
@@ -105,10 +142,9 @@ export const products = [
     summary:
       "A black-tea collection named for the planter whom Kudamalana credits with building its original factory in 1919.",
     details:
-      "Kudamalana describes Easkin's Choice as 100% organic black tea. Third-party organic certificate details are not shown until the certifier, scope, number and validity dates are available.",
-    facts: ["Black tea", "Organic practice claim", "Package sizes to be confirmed"],
+      "Named in honor of the planter associated with the original Kudamalana factory, Easkin's Choice connects the tea collection with the estate's early history.",
+    facts: ["Black tea", "Heritage collection"],
     aliases: [],
-    brew: "Detailed brewing guidance should be confirmed from current product documentation.",
     images: []
   },
   {
@@ -118,12 +154,11 @@ export const products = [
     eyebrow: "Single-source low-grown tea",
     theme: "green",
     summary:
-      "A premium, high-liquor, low-grown, single-source and non-blended black tea in Kudamalana's published product language.",
+      "A premium, high-liquor, low-grown, single-source and non-blended black tea from Kudamalana.",
     details:
       "Its name honors Telikada Palliya Guruge Charles, who the estate says took stewardship of Kudamalana after its founder.",
     facts: ["Black tea", "Unblended", "Single-source", "High liquor"],
     aliases: ["Brew by Charles"],
-    brew: "Use approved cupping notes before adding precise sensory descriptors.",
     images: [
       {
         src: "/product-photos/brew-by-charles-tin-150g.png",
@@ -142,12 +177,11 @@ export const products = [
     eyebrow: "Blended black tea",
     theme: "copper",
     summary:
-      "A blended black tea named for Eddy Premasiri in Kudamalana's published family history.",
+      "A blended black tea named for Eddy Premasiri in Kudamalana's family story.",
     details:
       "The estate describes the tea around distinctive taste, richness and fresh-tea aroma.",
-    facts: ["Black tea", "Blended", "Fresh-tea aroma", "Retail spelling to confirm from packaging"],
+    facts: ["Black tea", "Blended", "Fresh-tea aroma"],
     aliases: ["Eddie's Taste"],
-    brew: "Exact grade, ingredients and package formats remain to be confirmed.",
     images: [
       {
         src: "/product-photos/eddys-taste-pouch-200g.png",
@@ -168,10 +202,9 @@ export const products = [
     summary:
       "An everyday black tea positioned by Kudamalana around a strong, high-liquor cup and fresh black-tea character.",
     details:
-      "Package format, grades and current retail pricing are not listed in the reviewed public material.",
-    facts: ["Black tea", "Everyday cup", "High liquor", "Pricing to be confirmed"],
+      "Kudamalana Kahata is created for a full-bodied everyday cup with the bold character associated with low-grown Ceylon black tea.",
+    facts: ["Black tea", "Everyday cup", "High liquor"],
     aliases: [],
-    brew: "Add serving guidance after the estate confirms product-specific brewing advice.",
     images: [
       {
         src: "/product-photos/kudamalana-kahata-50g.png",
@@ -203,7 +236,7 @@ export const timeline = [
     year: "2018-2020",
     title: "Modernization program",
     text:
-      "Published estate material describes revitalization beginning in 2018 and a comprehensive modernization in 2020."
+      "A revitalization program began in 2018, followed by comprehensive factory modernization in 2020."
   },
   {
     year: "Today",
@@ -220,7 +253,7 @@ export const certifications = [
     body: "CEYCERT (Private) Limited",
     certificate: "CCFS 076",
     scope: "Manufacturing of Black Tea",
-    treatment: "Verified food-safety certification for the manufacturing facility."
+    treatment: "Food-safety management certification for the black-tea manufacturing facility."
   },
   {
     name: "Sri Lanka Tea Board factory listing",
@@ -228,49 +261,28 @@ export const certifications = [
     body: "Sri Lanka Tea Board",
     certificate: "MF0259",
     scope: "Kudamalana, Galle, Ruhuna",
-    treatment: "Factory registration and regional identity, not a quality award."
-  },
-  {
-    name: "Organic agricultural practice",
-    status: "First-party claim",
-    body: "Certifier unspecified",
-    certificate: "Not displayed",
-    scope: "Estate states that it follows fully organic agricultural practices.",
-    treatment:
-      "Do not display a third-party organic certification seal until documentary proof is supplied."
+    treatment: "Kudamalana's factory registration in Sri Lanka's Ruhuna tea-growing region."
   }
-];
-
-export const claimRules = [
-  "Do not invent price, tea grade, pack size, acreage, exact elevation or certificate dates.",
-  "Do not assert uninterrupted legal ownership from 1919 without resolving the 2011/12 broker record.",
-  "Do not present ISO 22000 as an organic or product-quality award.",
-  "Do not label stock photography as Kudamalana Estate, factory, staff or products."
 ];
 
 export const faqs = [
   {
     q: "Where is Kudamalana Tea Estate?",
     a:
-      "Kudamalana is in Thalgaswala, Galle, Sri Lanka. Public Tea Board information places MF0259 in the Ruhuna tea-growing region."
+      "Kudamalana is in Thalgaswala, Galle, Sri Lanka, within the Ruhuna low-grown tea region."
   },
   {
     q: "When was Kudamalana Tea Factory established?",
-    a: "The estate's published history dates the original factory to 1919."
+    a: "Kudamalana's history dates the original factory to 1919."
   },
   {
     q: "What kind of tea does Kudamalana make?",
     a:
-      "Kudamalana describes its production as orthodox black-tea making, with public product lines that include blended, unblended and everyday black teas."
-  },
-  {
-    q: "Is Kudamalana organic?",
-    a:
-      "Kudamalana states that its plantation follows fully organic agricultural practices. A public third-party organic certificate number and certifier are not currently shown here."
+      "Kudamalana produces orthodox black tea, with product lines that include blended, unblended and everyday black teas."
   },
   {
     q: "Can I visit the factory?",
     a:
-      "Kudamalana invites enquiries about factory visits. Public opening times, ticket prices and a guaranteed walk-in schedule are not specified."
+      "Yes. Factory visits can be arranged in advance by contacting the Kudamalana team."
   }
 ];

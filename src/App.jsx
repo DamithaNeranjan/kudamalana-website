@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
+import ResponsiveImage from "./ResponsiveImage";
 import { Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowRight,
   Award,
-  BadgeCheck,
   Building2,
-  Check,
+  ChevronLeft,
   ChevronRight,
   Factory,
   Leaf,
@@ -22,8 +22,8 @@ import {
 } from "lucide-react";
 import {
   certifications,
-  claimRules,
   estate,
+  factoryGallery,
   faqs,
   images,
   navItems,
@@ -54,7 +54,7 @@ function PageShell({ children }) {
       <header className="site-header">
         <Link className="brand" to="/" aria-label="Kudamalana home">
           <span className="brand-mark">
-            <img src="/brand/kudamalana-logo.png" alt="" aria-hidden="true" />
+            <ResponsiveImage src="/brand/kudamalana-logo.png" alt="" sizes="64px" loading="eager" aria-hidden="true" />
           </span>
           <span>
             <strong>Kudamalana</strong>
@@ -98,13 +98,12 @@ function SiteFooter() {
       <div>
         <Link className="footer-brand" to="/">
           <span className="footer-logo">
-            <img src="/brand/kudamalana-logo.png" alt="" aria-hidden="true" />
+            <ResponsiveImage src="/brand/kudamalana-logo.png" alt="" sizes="64px" aria-hidden="true" />
           </span>
           <span>{estate.name}</span>
         </Link>
         <p>
-          Low-grown Ceylon black tea from Thalgaswala, Galle, presented with careful sourcing and
-          claim discipline.
+          Low-grown Ceylon black tea from Thalgaswala, Galle, crafted in the Ruhuna tradition.
         </p>
       </div>
       <div className="footer-grid">
@@ -157,7 +156,7 @@ function SectionIntro({ eyebrow, title, children, center = false }) {
 function ImagePanel({ image, className = "" }) {
   return (
     <figure className={`image-panel ${className}`}>
-      <img src={image.src} alt={image.alt} loading="lazy" />
+      <ResponsiveImage src={image.src} alt={image.alt} sizes="(max-width: 900px) 100vw, 50vw" />
       <figcaption>{image.caption}</figcaption>
     </figure>
   );
@@ -168,7 +167,8 @@ function Home() {
 
   return (
     <>
-      <section className="hero" style={{ backgroundImage: `url(${images.landscape.src})` }}>
+      <section className="hero">
+        <ResponsiveImage className="hero-image" src={images.landscape.src} alt="" sizes="(max-width: 700px) 1100px, 100vw" loading="eager" fetchPriority="high" aria-hidden="true" />
         <div className="hero-overlay" />
         <div className="hero-content">
           <Eyebrow>{estate.location} • {estate.factoryRegistration}</Eyebrow>
@@ -195,47 +195,44 @@ function Home() {
         ))}
       </section>
 
+      <section className="heritage-band" aria-label="Kudamalana heritage statement">
+        <p>"Since 1919, low-grown Ceylon tea crafted in the Ruhuna tradition."</p>
+        <span>Thalgaswala, Galle • Orthodox Black Tea • MF0259</span>
+      </section>
+
       <section className="page-section split-section">
         <div>
-          <SectionIntro eyebrow="Heritage & Evidence" title="A careful story, not a loose claim">
-            Kudamalana's public story has strong foundations: a 1919 factory history, Ruhuna
-            regional identity, MF0259 registration and active ISO 22000:2018 food-safety
-            certification. The site also avoids overstating details that still need documents.
+          <SectionIntro eyebrow="Our Heritage" title="A century in the Ruhuna tea country">
+            From its beginnings in 1919, Kudamalana has grown around generations of tea making in
+            Thalgaswala, Galle. Today the factory operates as MF0259 and continues its focus on
+            low-grown orthodox black tea.
           </SectionIntro>
-          <div className="rule-list">
-            {claimRules.slice(0, 3).map((rule) => (
-              <div key={rule} className="rule-item">
-                <ShieldCheck size={20} aria-hidden="true" />
-                <span>{rule}</span>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="feature-panel">
           <span className="panel-icon"><Factory size={26} /></span>
           <h3>Orthodox black tea from MF0259</h3>
           <p>
-            The site presents Kudamalana as a modernized Ruhuna low-grown black-tea factory while
-            keeping equipment, acreage, grades and commercial terms clearly unclaimed until verified.
+            A modernized factory in Sri Lanka's Ruhuna region, producing low-grown Ceylon black tea
+            through the traditional orthodox process.
           </p>
           <CTA to="/estate-factory" variant="text">See the Factory</CTA>
         </div>
       </section>
 
       <section className="page-section muted">
-        <SectionIntro center eyebrow="Tea Portfolio" title="Four public product lines, no invented SKUs">
-          The first catalog focuses on the named teas that can be supported from the research.
+        <SectionIntro center eyebrow="Tea Collection" title="Discover four Kudamalana tea lines">
+          From heritage-inspired collections to robust everyday teas, explore the character of
+          Kudamalana's low-grown Ceylon black tea.
         </SectionIntro>
         <ProductGrid limit={4} />
       </section>
 
-      <section className="page-section split-section">
+      <section className="page-section split-section image-story-section">
         <ImagePanel image={images.hills} />
-        <div>
-          <SectionIntro eyebrow="Sustainability" title="Environmental copy with the right boundaries">
-            Kudamalana's own material describes organic agricultural practices, mixed cultivation,
-            soil and water stewardship and renewable-energy ambitions. The website treats those as
-            estate-stated practices, not third-party certification badges.
+        <div className="image-story-copy">
+          <SectionIntro eyebrow="Sustainability" title="Growing with care for the land">
+            Kudamalana's approach brings together organic farming practices, mixed cultivation,
+            soil and water stewardship, and a growing commitment to renewable energy.
           </SectionIntro>
           <CTA to="/sustainability">Read the Sustainability Story</CTA>
         </div>
@@ -250,7 +247,7 @@ function Story() {
     <StandardPage
       eyebrow="Our Story"
       title="Tea rooted in more than a century of place and people"
-      intro="Kudamalana's published history begins with a 1919 factory in Thalgaswala and continues through generations of stewardship, modernization and orthodox black-tea making."
+      intro="Kudamalana's story begins with a 1919 factory in Thalgaswala and continues through generations of stewardship, modernization and orthodox black-tea making."
     >
       <section className="page-section split-section top-align">
         <div className="story-copy">
@@ -261,17 +258,9 @@ function Story() {
             his son, Eddy Premasiri.
           </p>
           <p>
-            Today, Kudamalana (Pvt) Ltd describes the estate as family-run, with later generations
-            of the Charles family carrying the story forward. The public site should not make a
-            definitive legal-ownership timeline beyond the evidence currently available.
+            Today, Kudamalana (Pvt) Ltd continues as a family-run tea business, with later
+            generations carrying the estate's tea-making tradition forward.
           </p>
-          <div className="notice">
-            <BadgeCheck size={20} aria-hidden="true" />
-            <span>
-              A 2011/12 broker record connects another named party with MF0259. This site keeps the
-              ownership language careful until estate records resolve that detail.
-            </span>
-          </div>
         </div>
         <Timeline />
       </section>
@@ -281,37 +270,50 @@ function Story() {
 
 function EstateFactory() {
   usePageMeta(seo["/estate-factory"].title, seo["/estate-factory"].description);
-  const stages = ["Leaf reception", "Withering", "Rolling", "Oxidation", "Drying", "Grading"];
+  const stages = [
+    ["Leaf reception", "Freshly gathered tea leaves arrive at the factory for careful inspection."],
+    ["Withering", "The leaves are gently withered to reduce moisture and prepare them for rolling."],
+    ["Rolling", "Rolling shapes the leaf and begins the development of its distinctive character."],
+    ["Oxidation", "Controlled oxidation develops the color, aroma and body of the black tea."],
+    ["Drying", "The oxidized leaf is dried to preserve its finished character and quality."],
+    ["Grading", "The finished tea is sorted into grades ready for tasting and selection."]
+  ];
   return (
     <StandardPage
       eyebrow="Estate & Factory"
       title="MF0259 in Sri Lanka's Ruhuna low-grown tea country"
-      intro="Kudamalana is presented as a Ruhuna orthodox black-tea factory with a modernized production story and intentionally modest equipment claims."
+      intro="Kudamalana is a modernized orthodox black-tea factory in Sri Lanka's Ruhuna low-grown tea country."
     >
-      <section className="page-section split-section">
+      <section className="page-section split-section image-story-section">
         <ImagePanel image={images.landscape} />
         <div className="info-stack">
           <FactRow icon={<MapPin />} label="Location" value={estate.location} />
           <FactRow icon={<Factory />} label="Factory registration" value={estate.factoryRegistration} />
           <FactRow icon={<Leaf />} label="Tea region" value={estate.region} />
-          <FactRow icon={<Building2 />} label="Production" value="16,000-18,000 kg/month estate-stated output" />
-          <FactRow icon={<Award />} label="Capacity" value="20,000 kg/month estate-stated full capacity" />
+          <FactRow icon={<Building2 />} label="Monthly production" value="16,000-18,000 kg" />
+          <FactRow icon={<Award />} label="Full capacity" value="20,000 kg/month" />
         </div>
       </section>
       <section className="page-section muted">
-        <SectionIntro center eyebrow="Orthodox Process" title="A transparent production framework">
-          These are the standard orthodox black-tea stages used for education. Machine models and
-          capacities remain to be confirmed from Kudamalana records.
+        <SectionIntro center eyebrow="Orthodox Process" title="From fresh leaf to finished tea">
+          Kudamalana follows the key stages of orthodox black-tea production to shape the leaf's
+          color, aroma and character.
         </SectionIntro>
         <div className="process-grid">
-          {stages.map((stage, index) => (
+          {stages.map(([stage, description], index) => (
             <div key={stage} className="process-step">
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{stage}</h3>
-              <p>Specific Kudamalana equipment details are to be confirmed before publication.</p>
+              <p>{description}</p>
             </div>
           ))}
         </div>
+      </section>
+      <section className="page-section">
+        <SectionIntro eyebrow="Factory Photography" title="Kudamalana from above and on site">
+          Explore the factory, solar-panel roofline and surrounding Ruhuna landscape.
+        </SectionIntro>
+        <FactoryGallery />
       </section>
     </StandardPage>
   );
@@ -323,7 +325,7 @@ function Teas() {
     <StandardPage
       eyebrow="Teas"
       title="Kudamalana black teas"
-      intro="The catalog starts with the four named public product lines. Unknown grades, pack sizes and prices are not invented."
+      intro="Explore four Kudamalana black-tea lines, each with its own place in the estate's story."
     >
       <section className="page-section">
         <ProductGrid />
@@ -361,18 +363,6 @@ function ProductDetail() {
               <span key={fact}>{fact}</span>
             ))}
           </div>
-          <div className="detail-box">
-            <h3>To be confirmed before commerce</h3>
-            <p>
-              Leaf grade, ingredients, net weight, retail pricing, wholesale case size, batch
-              details and final package photography should be added only after official product
-              documentation is supplied.
-            </p>
-          </div>
-          <div className="detail-box">
-            <h3>Brewing note</h3>
-            <p>{product.brew}</p>
-          </div>
           <CTA to="/contact">Enquire About This Tea</CTA>
         </div>
       </section>
@@ -385,30 +375,30 @@ function Sustainability() {
   const pillars = [
     {
       icon: <Sprout />,
-      title: "Organic-practice story",
+      title: "Organic farming practices",
       text:
-        "The estate states that it follows fully organic agricultural practices. This is not shown as a third-party certification seal."
+        "Kudamalana follows organic agricultural practices designed to work in harmony with the surrounding land."
     },
     {
       icon: <Leaf />,
       title: "Mixed cultivation",
       text:
-        "Kudamalana's published material describes tea grown alongside coconut, Ceylon cinnamon and medicinal herbs."
+        "Tea grows alongside coconut, Ceylon cinnamon and medicinal herbs across the estate landscape."
     },
     {
       icon: <SunMedium />,
-      title: "Energy ambition",
+      title: "Renewable energy",
       text:
-        "The safer public wording is that Kudamalana is working toward supplying around 30% of its energy needs from renewable sources."
+        "Kudamalana is working toward supplying around 30% of its energy needs from renewable sources."
     }
   ];
   return (
     <StandardPage
       eyebrow="Sustainability"
-      title="A grounded environmental story"
-      intro="The sustainability page separates estate-stated practice from third-party certification, giving buyers a clearer basis for trust."
+      title="Cultivating tea with care"
+      intro="Kudamalana combines thoughtful cultivation, mixed planting and renewable-energy goals in its approach to the land."
     >
-      <section className="page-section split-section">
+      <section className="page-section split-section image-story-section">
         <div className="pillar-grid single-column">
           {pillars.map((pillar) => (
             <article className="pillar-card" key={pillar.title}>
@@ -429,8 +419,8 @@ function Quality() {
   return (
     <StandardPage
       eyebrow="Quality & Certifications"
-      title="Food-safety evidence, clearly separated from farming claims"
-      intro="This page treats ISO 22000 as a food-safety management certification for black-tea manufacturing, not as a product award or organic certificate."
+      title="Quality and food safety at every stage"
+      intro="Kudamalana's black-tea manufacturing is supported by ISO 22000:2018 food-safety management certification and factory registration MF0259."
     >
       <section className="page-section certification-grid">
         {certifications.map((cert) => (
@@ -447,17 +437,6 @@ function Quality() {
           </article>
         ))}
       </section>
-      <section className="page-section muted">
-        <SectionIntro eyebrow="Claim Guardrails" title="What this site will not overstate" />
-        <div className="rule-list wide">
-          {claimRules.map((rule) => (
-            <div className="rule-item" key={rule}>
-              <Check size={18} />
-              <span>{rule}</span>
-            </div>
-          ))}
-        </div>
-      </section>
     </StandardPage>
   );
 }
@@ -467,22 +446,22 @@ function Trade() {
   const tradeCards = [
     ["Wholesale buyers", "Discuss volume needs, black-tea supply and factory documentation."],
     ["Importers & distributors", "Request information on capacity, food-safety certification and sample pathways."],
-    ["Private-label enquiries", "Use the enquiry route while MOQs, case sizes and commercial terms are confirmed."]
+    ["Private-label enquiries", "Discuss packaging needs, order volumes and commercial requirements with the Kudamalana team."]
   ];
   return (
     <StandardPage
       eyebrow="Trade & Wholesale"
       title="A clear enquiry path for buyers"
-      intro="Kudamalana's stated capacity and auction participation make a trade pathway useful, while exact MOQs, destinations and case sizes remain quote-specific."
+      intro="Connect with Kudamalana for wholesale supply, distribution, samples and private-label enquiries."
     >
       <section className="page-section trade-layout">
         <div className="trade-panel">
-          <h2>Trade facts available now</h2>
+          <h2>Trade at a glance</h2>
           <ul>
             <li>Factory registration: MF0259</li>
             <li>Region: Ruhuna low-grown tea country</li>
             <li>Process: orthodox black tea</li>
-            <li>Estate-stated full capacity: 20,000 kg/month</li>
+            <li>Full capacity: 20,000 kg/month</li>
             <li>Food-safety certification: ISO 22000:2018, CCFS 076</li>
           </ul>
           <CTA to="/contact">Start a Trade Enquiry</CTA>
@@ -507,9 +486,9 @@ function Visit() {
     <StandardPage
       eyebrow="Visit"
       title="Plan a factory visit enquiry"
-      intro="Kudamalana invites visitors to contact the estate about planning a factory visit. Walk-in hours, fees and a guaranteed schedule are not specified."
+      intro="Discover Kudamalana in Thalgaswala by arranging a factory visit with the estate team."
     >
-      <section className="page-section split-section">
+      <section className="page-section split-section image-story-section">
         <div className="visit-card">
           <MapPin size={32} />
           <h2>Thalgaswala, Galle</h2>
@@ -519,7 +498,7 @@ function Visit() {
           </p>
           <CTA to="/contact">Send Visit Enquiry</CTA>
         </div>
-        <ImagePanel image={images.landscape} />
+        <ImagePanel image={images.factoryExterior} />
       </section>
     </StandardPage>
   );
@@ -587,6 +566,75 @@ function ProductGrid({ limit }) {
   );
 }
 
+function FactoryGallery() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const activePhoto = activeIndex === null ? null : factoryGallery[activeIndex];
+
+  useEffect(() => {
+    if (activeIndex === null) return undefined;
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") setActiveIndex(null);
+      if (event.key === "ArrowLeft") {
+        setActiveIndex((index) => (index === 0 ? factoryGallery.length - 1 : index - 1));
+      }
+      if (event.key === "ArrowRight") {
+        setActiveIndex((index) => (index === factoryGallery.length - 1 ? 0 : index + 1));
+      }
+    }
+
+    document.body.classList.add("lightbox-open");
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.classList.remove("lightbox-open");
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeIndex]);
+
+  return (
+    <>
+      <div className="factory-gallery">
+        {factoryGallery.map((photo, index) => (
+          <figure key={photo.src} className="factory-gallery-item">
+            <button type="button" onClick={() => setActiveIndex(index)}>
+              <ResponsiveImage src={photo.src} alt={photo.alt} sizes="(max-width: 820px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+              <span>View large</span>
+            </button>
+            <figcaption>{photo.title}</figcaption>
+          </figure>
+        ))}
+      </div>
+      {activePhoto && (
+        <div className="photo-lightbox" role="dialog" aria-modal="true" aria-label={`${activePhoto.title} enlarged photo`}>
+          <button className="lightbox-close" type="button" onClick={() => setActiveIndex(null)} aria-label="Close enlarged photo">
+            <X size={24} />
+          </button>
+          <button
+            className="lightbox-nav previous"
+            type="button"
+            onClick={() => setActiveIndex((index) => (index === 0 ? factoryGallery.length - 1 : index - 1))}
+            aria-label="Previous photo"
+          >
+            <ChevronLeft size={28} />
+          </button>
+          <figure className="lightbox-figure">
+            <ResponsiveImage key={activePhoto.src} src={activePhoto.src} alt={activePhoto.alt} sizes="(max-width: 820px) 95vw, 85vw" loading="eager" fetchPriority="high" />
+            <figcaption>{activePhoto.title}</figcaption>
+          </figure>
+          <button
+            className="lightbox-nav next"
+            type="button"
+            onClick={() => setActiveIndex((index) => (index === factoryGallery.length - 1 ? 0 : index + 1))}
+            aria-label="Next photo"
+          >
+            <ChevronRight size={28} />
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
+
 function ProductVisual({ product, large = false }) {
   const primaryImage = product.images?.[0];
 
@@ -594,12 +642,12 @@ function ProductVisual({ product, large = false }) {
     return (
       <figure className={`product-photo ${product.theme} ${large ? "large" : ""}`}>
         <div className="product-photo-stage">
-          <img src={primaryImage.src} alt={primaryImage.alt} loading={large ? "eager" : "lazy"} />
+          <ResponsiveImage src={primaryImage.src} alt={primaryImage.alt} sizes={large ? "(max-width: 820px) 80vw, 430px" : "(max-width: 820px) 80vw, (max-width: 1100px) 26vw, 20vw"} loading={large ? "eager" : "lazy"} fetchPriority={large ? "high" : "auto"} />
         </div>
         {large && product.images.length > 1 && (
           <div className="product-photo-strip" aria-label={`${product.name} product images`}>
             {product.images.map((image) => (
-              <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />
+              <ResponsiveImage key={image.src} src={image.src} alt={image.alt} sizes="160px" />
             ))}
           </div>
         )}

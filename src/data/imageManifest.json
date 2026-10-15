@@ -1,0 +1,80 @@
+{
+  "/factory-ai/kudamalana-estate-panorama.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/kudamalana-estate-panorama-640-278649873b.webp",
+    "srcSet": "/optimized/kudamalana-estate-panorama-320-72f80d8cf3.webp 320w, /optimized/kudamalana-estate-panorama-640-278649873b.webp 640w, /optimized/kudamalana-estate-panorama-960-6cfcb49fe7.webp 960w, /optimized/kudamalana-estate-panorama-1672-49a1a4c853.webp 1672w"
+  },
+  "/factory-ai/kudamalana-factory-aerial-hero.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/kudamalana-factory-aerial-hero-640-f4d4b9fcc9.webp",
+    "srcSet": "/optimized/kudamalana-factory-aerial-hero-320-5e07ef088f.webp 320w, /optimized/kudamalana-factory-aerial-hero-640-f4d4b9fcc9.webp 640w, /optimized/kudamalana-factory-aerial-hero-960-eda886ae78.webp 960w, /optimized/kudamalana-factory-aerial-hero-1672-7f25f19e44.webp 1672w"
+  },
+  "/factory-ai/kudamalana-factory-aerial-wide.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/kudamalana-factory-aerial-wide-640-499fa81393.webp",
+    "srcSet": "/optimized/kudamalana-factory-aerial-wide-320-a86a301f11.webp 320w, /optimized/kudamalana-factory-aerial-wide-640-499fa81393.webp 640w, /optimized/kudamalana-factory-aerial-wide-960-1d59f4b41e.webp 960w, /optimized/kudamalana-factory-aerial-wide-1672-5c72c86045.webp 1672w"
+  },
+  "/factory-ai/kudamalana-factory-exterior.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/kudamalana-factory-exterior-640-101ceed698.webp",
+    "srcSet": "/optimized/kudamalana-factory-exterior-320-6819dd6278.webp 320w, /optimized/kudamalana-factory-exterior-640-101ceed698.webp 640w, /optimized/kudamalana-factory-exterior-960-64ac0d551a.webp 960w, /optimized/kudamalana-factory-exterior-1672-f8fce73813.webp 1672w"
+  },
+  "/factory-ai/kudamalana-homepage-hero-v2.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/kudamalana-homepage-hero-v2-640-82bda93020.webp",
+    "srcSet": "/optimized/kudamalana-homepage-hero-v2-320-7d9561f362.webp 320w, /optimized/kudamalana-homepage-hero-v2-640-82bda93020.webp 640w, /optimized/kudamalana-homepage-hero-v2-960-bcf2f24ce4.webp 960w, /optimized/kudamalana-homepage-hero-v2-1672-814954a83a.webp 1672w"
+  },
+  "/factory-ai/kudamalana-solar-roof-aerial.webp": {
+    "width": 1672,
+    "height": 940,
+    "src": "/optimized/kudamalana-solar-roof-aerial-640-610f46c7b5.webp",
+    "srcSet": "/optimized/kudamalana-solar-roof-aerial-320-fc5ed1044f.webp 320w, /optimized/kudamalana-solar-roof-aerial-640-610f46c7b5.webp 640w, /optimized/kudamalana-solar-roof-aerial-960-3716816bf4.webp 960w, /optimized/kudamalana-solar-roof-aerial-1672-ed7ac7e989.webp 1672w"
+  },
+  "/factory-ai/kudamalana-solar-roof-close.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/kudamalana-solar-roof-close-640-fc85770ddb.webp",
+    "srcSet": "/optimized/kudamalana-solar-roof-close-320-cafb3b09ea.webp 320w, /optimized/kudamalana-solar-roof-close-640-fc85770ddb.webp 640w, /optimized/kudamalana-solar-roof-close-960-d729e21d62.webp 960w, /optimized/kudamalana-solar-roof-close-1672-c10102bac7.webp 1672w"
+  },
+  "/product-photos/brew-by-charles-tin-150g.png": {
+    "width": 1024,
+    "height": 1536,
+    "src": "/optimized/brew-by-charles-tin-150g-640-8ffb1105e9.webp",
+    "srcSet": "/optimized/brew-by-charles-tin-150g-320-38a188e95a.webp 320w, /optimized/brew-by-charles-tin-150g-640-8ffb1105e9.webp 640w, /optimized/brew-by-charles-tin-150g-960-8b535f80bb.webp 960w, /optimized/brew-by-charles-tin-150g-1024-6b45c77b66.webp 1024w"
+  },
+  "/product-photos/charles-brew-pouch.png": {
+    "width": 1024,
+    "height": 1536,
+    "src": "/optimized/charles-brew-pouch-640-f122a535c7.webp",
+    "srcSet": "/optimized/charles-brew-pouch-320-f40a7a00c4.webp 320w, /optimized/charles-brew-pouch-640-f122a535c7.webp 640w, /optimized/charles-brew-pouch-960-d360d0f721.webp 960w, /optimized/charles-brew-pouch-1024-43e01ec9b4.webp 1024w"
+  },
+  "/product-photos/eddies-taste-kraft-pouch.png": {
+    "width": 1024,
+    "height": 1536,
+    "src": "/optimized/eddies-taste-kraft-pouch-640-a8149384a6.webp",
+    "srcSet": "/optimized/eddies-taste-kraft-pouch-320-966b711cde.webp 320w, /optimized/eddies-taste-kraft-pouch-640-a8149384a6.webp 640w, /optimized/eddies-taste-kraft-pouch-960-8fe0984d63.webp 960w, /optimized/eddies-taste-kraft-pouch-1024-1e1fd31fc2.webp 1024w"
+  },
+  "/product-photos/eddys-taste-pouch-200g.png": {
+    "width": 1122,
+    "height": 1402,
+    "src": "/optimized/eddys-taste-pouch-200g-640-3118dfd248.webp",
+    "srcSet": "/optimized/eddys-taste-pouch-200g-320-e554066ef3.webp 320w, /optimized/eddys-taste-pouch-200g-640-3118dfd248.webp 640w, /optimized/eddys-taste-pouch-200g-960-c5adfb2810.webp 960w, /optimized/eddys-taste-pouch-200g-1122-032e041c37.webp 1122w"
+  },
+  "/product-photos/kudamalana-kahata-50g.png": {
+    "width": 1024,
+    "height": 1536,
+    "src": "/optimized/kudamalana-kahata-50g-640-7b4e9c8bc1.webp",
+    "srcSet": "/optimized/kudamalana-kahata-50g-320-158db3f935.webp 320w, /optimized/kudamalana-kahata-50g-640-7b4e9c8bc1.webp 640w, /optimized/kudamalana-kahata-50g-960-b585606772.webp 960w, /optimized/kudamalana-kahata-50g-1024-071f1996d1.webp 1024w"
+  },
+  "/brand/kudamalana-logo.png": {
+    "width": 792,
+    "height": 792,
+    "src": "/optimized/kudamalana-logo-160-ed050c474e.webp",
+    "srcSet": "/optimized/kudamalana-logo-160-ed050c474e.webp 160w"
+  }
+}
