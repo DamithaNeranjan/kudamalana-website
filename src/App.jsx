@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import ResponsiveImage from "./ResponsiveImage";
 import { Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import {
@@ -41,9 +41,68 @@ function usePageMeta(title, description) {
   }, [title, description]);
 }
 
+function useScrollReveal(pathname) {
+  useLayoutEffect(() => {
+    const selector = [
+      ".trust-strip > div",
+      ".heritage-band > *",
+      ".section-intro",
+      ".story-copy",
+      ".feature-panel",
+      ".image-panel",
+      ".product-card",
+      ".product-photo.large",
+      ".product-copy",
+      ".process-step",
+      ".factory-gallery-item",
+      ".timeline article",
+      ".fact-row",
+      ".pillar-card",
+      ".cert-card",
+      ".trade-panel",
+      ".trade-cards article",
+      ".visit-card",
+      ".contact-card",
+      ".enquiry-form",
+      ".site-footer > div"
+    ].join(",");
+    const nodes = [...document.querySelectorAll(selector)];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const siblingCounts = new Map();
+    nodes.forEach((node) => {
+      const parent = node.parentElement;
+      const order = siblingCounts.get(parent) || 0;
+      siblingCounts.set(parent, order + 1);
+      node.classList.add("scroll-reveal");
+      node.style.setProperty("--reveal-delay", `${Math.min(order, 5) * 70}ms`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -7%" }
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [pathname]);
+}
+
 function PageShell({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  useScrollReveal(location.pathname);
 
   useEffect(() => {
     setMenuOpen(false);

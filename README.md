@@ -10,6 +10,7 @@ quality information, trade enquiries, visit information, and contact details.
 - React Router
 - Lucide icons
 - Sharp-based responsive image generation
+- Intersection Observer-based scroll reveals with reduced-motion support
 - Frontend-only enquiry forms that open a prefilled email to
   `kudamalana@gmail.com`
 
@@ -81,6 +82,11 @@ treatment keeps the shared industrial grid, dark green palette, brass details,
 gold line icon, and estate metadata while changing the subject to match the
 page. Header artwork is centralized in `src/data/siteData.js`, passed through
 the `artwork` prop on `StandardPage`, and styled by the `.page-hero-art` rules.
+
+Cards, information rows, galleries, and section introductions use a shared
+scroll-reveal and hover-motion system. The observer is initialized by
+`useScrollReveal` in `src/App.jsx`; its visual rules and reduced-motion fallback
+are in the final motion section of `src/styles.css`.
 
 ## Publishing
 
