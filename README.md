@@ -11,6 +11,7 @@ quality information, trade enquiries, visit information, and contact details.
 - Lucide icons
 - Sharp-based responsive image generation
 - Intersection Observer-based scroll reveals with reduced-motion support
+- Lazy-loaded Google Maps embed and directions link for the factory location
 - Frontend-only enquiry forms that open a prefilled email to
   `kudamalana@gmail.com`
 
@@ -30,7 +31,7 @@ npm run build
 ## Routes
 
 - `/` - Home
-- `/our-story` - Estate history
+- `/our-story` - Estate history, archival origin plate and timeline
 - `/estate-factory` - Factory overview and photograph gallery
 - `/teas` - Product catalogue
 - `/teas/brew-by-charles` - Brew by Charles tin
@@ -40,8 +41,8 @@ npm run build
 - `/sustainability` - Farming and environmental practices
 - `/quality` - Food-safety and quality information
 - `/trade` - Wholesale and trade enquiries
-- `/visit` - Visit enquiries
-- `/contact` - General contact form
+- `/visit` - Visit enquiries, factory location and embedded Google Map
+- `/contact` - General contact form and Google Maps link
 
 ## Product catalogue
 
@@ -87,6 +88,20 @@ Cards, information rows, galleries, and section introductions use a shared
 scroll-reveal and hover-motion system. The observer is initialized by
 `useScrollReveal` in `src/App.jsx`; its visual rules and reduced-motion fallback
 are in the final motion section of `src/styles.css`.
+
+## Page treatments
+
+The Our Story chronology pairs its timeline with a CSS-built estate archive
+plate. The plate uses the verified original-factory year, location, craft and
+factory registration already held in site content; its layout and geometric
+decoration are defined under `.heritage-archive` in `src/styles.css`.
+
+The Visit page includes a lazy-loaded Google Maps iframe and an external map
+link. Contact also exposes the external map link. The displayed address,
+Google Maps search URL and embed URL are centralized as `mapAddress`, `mapUrl`
+and `mapEmbedUrl` on the `estate` object in `src/data/siteData.js`. The embed
+uses Google's query-based URL and does not require an API key. Update all three
+fields together if the public factory listing changes.
 
 ## Publishing
 

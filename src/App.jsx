@@ -47,7 +47,8 @@ function useScrollReveal(pathname) {
       ".trust-strip > div",
       ".heritage-band > *",
       ".section-intro",
-      ".story-copy",
+      ".story-copy > p",
+      ".heritage-archive",
       ".feature-panel",
       ".image-panel",
       ".product-card",
@@ -62,6 +63,8 @@ function useScrollReveal(pathname) {
       ".trade-panel",
       ".trade-cards article",
       ".visit-card",
+      ".location-copy",
+      ".map-frame",
       ".contact-card",
       ".enquiry-form",
       ".site-footer > div"
@@ -311,7 +314,7 @@ function Story() {
       intro="Kudamalana's story begins with a 1919 factory in Thalgaswala and continues through generations of stewardship, modernization and orthodox black-tea making."
       artwork={{ variant: "story", image: headerArt.story, icon: <Award /> }}
     >
-      <section className="page-section split-section top-align">
+      <section id="story-chronicle" className="page-section split-section top-align">
         <div className="story-copy">
           <p>
             According to the estate's records, Scottish planter Mr. Easkin recognized the area's
@@ -323,6 +326,33 @@ function Story() {
             Today, Kudamalana (Pvt) Ltd continues as a family-run tea business, with later
             generations carrying the estate's tea-making tradition forward.
           </p>
+          <aside className="heritage-archive" aria-label="Kudamalana origin record">
+            <div className="archive-heading">
+              <span>Estate archive</span>
+              <small>Origin record 01</small>
+            </div>
+            <div className="archive-year">
+              <span>Original factory</span>
+              <strong>1919</strong>
+            </div>
+            <dl className="archive-facts">
+              <div>
+                <dt>Place</dt>
+                <dd>Thalgaswala, Galle</dd>
+              </div>
+              <div>
+                <dt>Craft</dt>
+                <dd>Orthodox black tea</dd>
+              </div>
+              <div>
+                <dt>Factory</dt>
+                <dd>MF0259</dd>
+              </div>
+            </dl>
+            <span className="archive-mark" aria-hidden="true">
+              <Leaf />
+            </span>
+          </aside>
         </div>
         <Timeline />
       </section>
@@ -573,6 +603,26 @@ function Visit() {
         </div>
         <ImagePanel image={images.factoryExterior} />
       </section>
+      <section id="location" className="page-section location-section">
+        <div className="location-copy">
+          <Eyebrow>Find the Factory</Eyebrow>
+          <h2>Kudamalana in Thalgaswala</h2>
+          <p>{estate.mapAddress}</p>
+          <a className="cta primary" href={estate.mapUrl} target="_blank" rel="noreferrer">
+            <span>Open in Google Maps</span>
+            <MapPin size={18} aria-hidden="true" />
+          </a>
+        </div>
+        <div className="map-frame">
+          <iframe
+            title="Google Map showing Kudamalana Tea Factory in Thalgaswala"
+            src={estate.mapEmbedUrl}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </section>
     </StandardPage>
   );
 }
@@ -596,6 +646,9 @@ function Contact() {
               <Phone size={18} /> {phone}
             </a>
           ))}
+          <a href={estate.mapUrl} target="_blank" rel="noreferrer">
+            <MapPin size={18} /> Open in Google Maps
+          </a>
           <p className="muted-text">
             The form opens your email app with a prepared message. It does not store or send data on
             its own.
