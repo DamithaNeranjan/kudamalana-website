@@ -14,6 +14,17 @@ with the source change, plus the `public/factory-ai` WebP exports. The optimizer
 variants with content-hashed filenames, plus a small PNG favicon. It performs
 resizing and compression only, without changing photo colors or sharpening.
 
+The active product-image mapping is:
+
+- `brew-by-charles-tin-150g.png` - Brew by Charles
+- `charles-brew-pouch.png` - Charles Brew
+- `eddys-taste-pouch-200g.png` - Eddy's Taste
+- `kudamalana-kahata-50g.png` - Kudamalana Kahata
+
+The former Eddy's Taste kraft-pouch image is not displayed. Update
+`src/data/siteData.js` when adding, removing, or reassigning a product image;
+running the optimizer alone does not change catalogue content.
+
 `ResponsiveImage` uses the manifest to select an image appropriate for the
 display size and pixel density. Images default to native lazy loading and async
 decoding; the homepage hero and main product image load eagerly. Factory gallery

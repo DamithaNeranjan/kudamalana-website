@@ -103,7 +103,7 @@ export const seo = {
   "/teas": {
     title: "Kudamalana Teas | Ruhuna Low-Grown Ceylon Black Tea",
     description:
-      "Explore Kudamalana's black teas, including Easkin's Choice, Eddy's Taste, Charles Brew and Kudamalana Kahata."
+      "Explore Kudamalana's black teas, including Brew by Charles, Charles Brew, Eddy's Taste and Kudamalana Kahata."
   },
   "/sustainability": {
     title: "Sustainability | Kudamalana Tea Estate",
@@ -134,23 +134,9 @@ export const seo = {
 
 export const products = [
   {
-    id: "KDM-EC-BLK-ORG",
-    slug: "easkins-choice",
-    name: "Easkin's Choice",
-    eyebrow: "Heritage black tea",
-    theme: "gold",
-    summary:
-      "A black-tea collection named for the planter whom Kudamalana credits with building its original factory in 1919.",
-    details:
-      "Named in honor of the planter associated with the original Kudamalana factory, Easkin's Choice connects the tea collection with the estate's early history.",
-    facts: ["Black tea", "Heritage collection"],
-    aliases: [],
-    images: []
-  },
-  {
     id: "KDM-CB-BLK-SO",
-    slug: "charles-brew",
-    name: "Charles Brew",
+    slug: "brew-by-charles",
+    name: "Brew by Charles",
     eyebrow: "Single-source low-grown tea",
     theme: "green",
     summary:
@@ -158,12 +144,27 @@ export const products = [
     details:
       "Its name honors Telikada Palliya Guruge Charles, who the estate says took stewardship of Kudamalana after its founder.",
     facts: ["Black tea", "Unblended", "Single-source", "High liquor"],
-    aliases: ["Brew by Charles"],
+    aliases: [],
     images: [
       {
         src: "/product-photos/brew-by-charles-tin-150g.png",
-        alt: "Brew by Charlie's premium quality Pure Ceylon Tea tin"
-      },
+        alt: "Brew by Charles premium quality Pure Ceylon Tea tin"
+      }
+    ]
+  },
+  {
+    id: "KDM-CB-BLK-SO-PCH",
+    slug: "charles-brew",
+    name: "Charles Brew",
+    eyebrow: "Single-source low-grown tea",
+    theme: "green charles-pouch",
+    summary:
+      "A premium, high-liquor, low-grown, single-source and non-blended black tea from Kudamalana, presented in pouch packaging.",
+    details:
+      "Its name honors Telikada Palliya Guruge Charles, who the estate says took stewardship of Kudamalana after its founder.",
+    facts: ["Black tea", "Unblended", "Single-source", "High liquor"],
+    aliases: [],
+    images: [
       {
         src: "/product-photos/charles-brew-pouch.png",
         alt: "Charles Brew premium quality Pure Ceylon Tea pouch"
@@ -186,10 +187,6 @@ export const products = [
       {
         src: "/product-photos/eddys-taste-pouch-200g.png",
         alt: "Eddy's Taste premium quality Pure Ceylon Tea packet"
-      },
-      {
-        src: "/product-photos/eddies-taste-kraft-pouch.png",
-        alt: "Eddie's Taste Kudamalana Tea Factory kraft pouch"
       }
     ]
   },

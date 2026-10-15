@@ -61,6 +61,7 @@ function PageShell({ children }) {
             <small>Tea Estate</small>
           </span>
         </Link>
+        <span className="header-registration">MF0259 / RUHUNA</span>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} end={item.path === "/"}>
@@ -220,7 +221,7 @@ function Home() {
       </section>
 
       <section className="page-section muted">
-        <SectionIntro center eyebrow="Tea Collection" title="Discover four Kudamalana tea lines">
+        <SectionIntro center eyebrow="Tea Collection" title="Discover four Kudamalana tea products">
           From heritage-inspired collections to robust everyday teas, explore the character of
           Kudamalana's low-grown Ceylon black tea.
         </SectionIntro>
@@ -325,7 +326,7 @@ function Teas() {
     <StandardPage
       eyebrow="Teas"
       title="Kudamalana black teas"
-      intro="Explore four Kudamalana black-tea lines, each with its own place in the estate's story."
+      intro="Explore four Kudamalana black-tea products, each with its own place in the estate's story."
     >
       <section className="page-section">
         <ProductGrid />
@@ -537,9 +538,16 @@ function StandardPage({ eyebrow, title, intro, children }) {
   return (
     <>
       <section className="page-hero">
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h1>{title}</h1>
-        <p>{intro}</p>
+        <div className="page-hero-inner">
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h1>{title}</h1>
+          <p>{intro}</p>
+        </div>
+        <div className="page-hero-meta" aria-label="Estate details">
+          <span>Factory <strong>MF0259</strong></span>
+          <span>Origin <strong>Ruhuna</strong></span>
+          <span>Since <strong>1919</strong></span>
+        </div>
       </section>
       {children}
     </>

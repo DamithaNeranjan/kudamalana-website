@@ -30,5 +30,8 @@ Each original was supplied separately as the edit target using this same prompt:
 Actual output dimensions are recorded in `src/data/imageManifest.json`; the
 requested size is not a guarantee of the generator's output. These are AI
 reconstructions, not documentary photographs or evidence of specific features.
-The website labels them accordingly. Main composition follows the references;
-generated fine details can vary.
+This provenance note is maintained for internal asset tracking; generation
+details are not displayed in public-facing site copy. Main composition follows
+the references, but generated fine details can vary. Layout-only hero framing,
+including the current rightward crop, is controlled in `src/styles.css` and does
+not require regenerating the master image.
