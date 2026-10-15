@@ -1,8 +1,9 @@
 # Image optimization
 
-Keep generated factory PNG masters in `assets/factory-ai`, product photos in
-`public/product-photos`, and the logo in `public/brand`. The original factory
-photographs remain in `public/factory-photos`. After replacing a master, run:
+Keep generated factory PNG masters in `assets/factory-ai`, interior-page artwork
+masters in `assets/header-art`, product photos in `public/product-photos`, and
+the logo in `public/brand`. The original factory photographs remain in
+`public/factory-photos`. After replacing a master, run:
 
 ```sh
 npm run images:optimize
@@ -10,7 +11,8 @@ npm run build
 ```
 
 Commit the generated `public/optimized` files and `src/data/imageManifest.json`
-with the source change, plus the `public/factory-ai` WebP exports. The optimizer preserves originals and creates WebP
+with the source change, plus the `public/factory-ai` and `public/header-art`
+WebP exports. The optimizer preserves originals and creates WebP
 variants with content-hashed filenames, plus a small PNG favicon. It performs
 resizing and compression only, without changing photo colors or sharpening.
 

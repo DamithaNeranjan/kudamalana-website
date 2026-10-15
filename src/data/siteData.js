@@ -39,6 +39,41 @@ export const images = {
   }
 };
 
+export const headerArt = {
+  story: {
+    src: "/header-art/our-story.webp",
+    alt: "Editorial artwork inspired by Kudamalana's tea-making heritage"
+  },
+  factory: {
+    src: "/header-art/estate-factory.webp",
+    alt: "Editorial artwork of orthodox tea-production machinery"
+  },
+  teas: {
+    src: "/header-art/teas.webp",
+    alt: "Editorial artwork of Ceylon black tea and tea service"
+  },
+  sustainability: {
+    src: "/header-art/sustainability.webp",
+    alt: "Editorial artwork of tea cultivation, roots, water and renewable energy"
+  },
+  quality: {
+    src: "/header-art/quality.webp",
+    alt: "Editorial artwork of black-tea tasting and quality inspection"
+  },
+  trade: {
+    src: "/header-art/trade.webp",
+    alt: "Editorial artwork of tea chests and international trade routes"
+  },
+  visit: {
+    src: "/header-art/visit.webp",
+    alt: "Editorial artwork of a path through tea fields toward a factory"
+  },
+  contact: {
+    src: "/header-art/contact.webp",
+    alt: "Editorial artwork of tea leaves and communication motifs"
+  }
+};
+
 export const factoryGallery = [
   {
     src: "/factory-ai/kudamalana-factory-aerial-hero.webp",

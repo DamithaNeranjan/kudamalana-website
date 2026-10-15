@@ -67,13 +67,20 @@ farming practices.
 
 Factory masters are stored in `assets/factory-ai`, public factory exports in
 `public/factory-ai`, original reference photographs in `public/factory-photos`,
-product photos in `public/product-photos`, and brand assets in `public/brand`.
+page-header artwork masters in `assets/header-art`, product photos in
+`public/product-photos`, and brand assets in `public/brand`.
 See `scripts/README.md` for the optimization workflow and
-`assets/factory-ai/README.md` for internal factory-image provenance.
+the README files within `assets` for internal image provenance.
 
 The homepage hero framing is controlled in CSS so the factory remains visible
 beside the text overlay. Adjust its crop and position in `src/styles.css` rather
 than regenerating the source image for layout-only changes.
+
+Interior page headers use dedicated route-specific editorial artwork. Each
+treatment keeps the shared industrial grid, dark green palette, brass details,
+gold line icon, and estate metadata while changing the subject to match the
+page. Header artwork is centralized in `src/data/siteData.js`, passed through
+the `artwork` prop on `StandardPage`, and styled by the `.page-hero-art` rules.
 
 ## Publishing
 

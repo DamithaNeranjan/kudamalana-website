@@ -41,6 +41,54 @@
     "src": "/optimized/kudamalana-solar-roof-close-640-fc85770ddb.webp",
     "srcSet": "/optimized/kudamalana-solar-roof-close-320-cafb3b09ea.webp 320w, /optimized/kudamalana-solar-roof-close-640-fc85770ddb.webp 640w, /optimized/kudamalana-solar-roof-close-960-d729e21d62.webp 960w, /optimized/kudamalana-solar-roof-close-1672-c10102bac7.webp 1672w"
   },
+  "/header-art/contact.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/contact-640-7f4e93040b.webp",
+    "srcSet": "/optimized/contact-320-0c22fe5233.webp 320w, /optimized/contact-640-7f4e93040b.webp 640w, /optimized/contact-960-aec2e04375.webp 960w, /optimized/contact-1672-af866a9da9.webp 1672w"
+  },
+  "/header-art/estate-factory.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/estate-factory-640-0ce256db84.webp",
+    "srcSet": "/optimized/estate-factory-320-bb22a9dcad.webp 320w, /optimized/estate-factory-640-0ce256db84.webp 640w, /optimized/estate-factory-960-9d1b22fef6.webp 960w, /optimized/estate-factory-1672-386ffa2dd9.webp 1672w"
+  },
+  "/header-art/our-story.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/our-story-640-b6d2fcbdef.webp",
+    "srcSet": "/optimized/our-story-320-c5f2d27b92.webp 320w, /optimized/our-story-640-b6d2fcbdef.webp 640w, /optimized/our-story-960-7fb7f0e499.webp 960w, /optimized/our-story-1672-199295aecf.webp 1672w"
+  },
+  "/header-art/quality.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/quality-640-184a511d7f.webp",
+    "srcSet": "/optimized/quality-320-830b6d7b5a.webp 320w, /optimized/quality-640-184a511d7f.webp 640w, /optimized/quality-960-ad9564fed1.webp 960w, /optimized/quality-1672-20493ef1e7.webp 1672w"
+  },
+  "/header-art/sustainability.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/sustainability-640-ee97a04cac.webp",
+    "srcSet": "/optimized/sustainability-320-59112c0cdb.webp 320w, /optimized/sustainability-640-ee97a04cac.webp 640w, /optimized/sustainability-960-425ba21889.webp 960w, /optimized/sustainability-1672-d2da8435e3.webp 1672w"
+  },
+  "/header-art/teas.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/teas-640-9050b135ac.webp",
+    "srcSet": "/optimized/teas-320-f23c0c22d7.webp 320w, /optimized/teas-640-9050b135ac.webp 640w, /optimized/teas-960-c2a3859c8a.webp 960w, /optimized/teas-1672-727776441c.webp 1672w"
+  },
+  "/header-art/trade.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/trade-640-6592bb6be1.webp",
+    "srcSet": "/optimized/trade-320-325cfaafbf.webp 320w, /optimized/trade-640-6592bb6be1.webp 640w, /optimized/trade-960-565a7f6d3f.webp 960w, /optimized/trade-1672-ff3cc3dc97.webp 1672w"
+  },
+  "/header-art/visit.webp": {
+    "width": 1672,
+    "height": 941,
+    "src": "/optimized/visit-640-4deaa447cb.webp",
+    "srcSet": "/optimized/visit-320-67edf853f6.webp 320w, /optimized/visit-640-4deaa447cb.webp 640w, /optimized/visit-960-46f587a8b2.webp 960w, /optimized/visit-1672-989b8f156b.webp 1672w"
+  },
   "/product-photos/brew-by-charles-tin-150g.png": {
     "width": 1024,
     "height": 1536,

@@ -11,22 +11,24 @@ const manifest = {};
 let originalBytes = 0;
 let previewBytes = 0;
 
-const factoryOutput = path.join(root, "public/factory-ai");
-await mkdir(factoryOutput, { recursive: true });
-for (const file of await readdir(path.join(root, "assets/factory-ai"))) {
-  if (!file.endsWith(".png")) continue;
-  const isHomepageHero = file === "kudamalana-homepage-hero-v2.png";
-  await sharp(path.join(root, "assets/factory-ai", file))
-    .webp({ quality: isHomepageHero ? 94 : 90, effort: 6 })
-    .toFile(path.join(factoryOutput, `${path.parse(file).name}.webp`));
+for (const folder of ["factory-ai", "header-art"]) {
+  const publicOutput = path.join(root, "public", folder);
+  await mkdir(publicOutput, { recursive: true });
+  for (const file of await readdir(path.join(root, "assets", folder))) {
+    if (!file.endsWith(".png")) continue;
+    const isHomepageHero = file === "kudamalana-homepage-hero-v2.png";
+    await sharp(path.join(root, "assets", folder, file))
+      .webp({ quality: isHomepageHero ? 94 : 90, effort: 6 })
+      .toFile(path.join(publicOutput, `${path.parse(file).name}.webp`));
+  }
 }
 
-for (const folder of ["factory-ai", "product-photos", "brand"]) {
+for (const folder of ["factory-ai", "header-art", "product-photos", "brand"]) {
   for (const file of (await readdir(path.join(root, "public", folder))).sort()) {
     if (!/\.(png|jpe?g|webp)$/i.test(file)) continue;
     // Encode directly from the generated master to avoid repeated lossy compression.
-    const source = folder === "factory-ai"
-      ? path.join(root, "assets/factory-ai", `${path.parse(file).name}.png`)
+    const source = ["factory-ai", "header-art"].includes(folder)
+      ? path.join(root, "assets", folder, `${path.parse(file).name}.png`)
       : path.join(root, "public", folder, file);
     const buffer = await readFile(source);
     const { width, height } = await sharp(buffer).metadata();

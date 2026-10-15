@@ -25,6 +25,7 @@ import {
   estate,
   factoryGallery,
   faqs,
+  headerArt,
   images,
   navItems,
   products,
@@ -249,6 +250,7 @@ function Story() {
       eyebrow="Our Story"
       title="Tea rooted in more than a century of place and people"
       intro="Kudamalana's story begins with a 1919 factory in Thalgaswala and continues through generations of stewardship, modernization and orthodox black-tea making."
+      artwork={{ variant: "story", image: headerArt.story, icon: <Award /> }}
     >
       <section className="page-section split-section top-align">
         <div className="story-copy">
@@ -284,6 +286,7 @@ function EstateFactory() {
       eyebrow="Estate & Factory"
       title="MF0259 in Sri Lanka's Ruhuna low-grown tea country"
       intro="Kudamalana is a modernized orthodox black-tea factory in Sri Lanka's Ruhuna low-grown tea country."
+      artwork={{ variant: "factory", image: headerArt.factory, icon: <Factory /> }}
     >
       <section className="page-section split-section image-story-section">
         <ImagePanel image={images.landscape} />
@@ -327,6 +330,7 @@ function Teas() {
       eyebrow="Teas"
       title="Kudamalana black teas"
       intro="Explore four Kudamalana black-tea products, each with its own place in the estate's story."
+      artwork={{ variant: "teas", image: headerArt.teas, icon: <Leaf /> }}
     >
       <section className="page-section">
         <ProductGrid />
@@ -351,7 +355,12 @@ function ProductDetail() {
   if (!product) return null;
 
   return (
-    <StandardPage eyebrow={product.eyebrow} title={product.name} intro={product.summary}>
+    <StandardPage
+      eyebrow={product.eyebrow}
+      title={product.name}
+      intro={product.summary}
+      artwork={{ variant: "product", image: headerArt.teas, icon: <Leaf /> }}
+    >
       <section className="page-section product-detail">
         <ProductVisual product={product} large />
         <div className="product-copy">
@@ -398,6 +407,7 @@ function Sustainability() {
       eyebrow="Sustainability"
       title="Cultivating tea with care"
       intro="Kudamalana combines thoughtful cultivation, mixed planting and renewable-energy goals in its approach to the land."
+      artwork={{ variant: "sustainability", image: headerArt.sustainability, icon: <Sprout /> }}
     >
       <section className="page-section split-section image-story-section">
         <div className="pillar-grid single-column">
@@ -422,6 +432,7 @@ function Quality() {
       eyebrow="Quality & Certifications"
       title="Quality and food safety at every stage"
       intro="Kudamalana's black-tea manufacturing is supported by ISO 22000:2018 food-safety management certification and factory registration MF0259."
+      artwork={{ variant: "quality", image: headerArt.quality, icon: <ShieldCheck /> }}
     >
       <section className="page-section certification-grid">
         {certifications.map((cert) => (
@@ -454,6 +465,7 @@ function Trade() {
       eyebrow="Trade & Wholesale"
       title="A clear enquiry path for buyers"
       intro="Connect with Kudamalana for wholesale supply, distribution, samples and private-label enquiries."
+      artwork={{ variant: "trade", image: headerArt.trade, icon: <Package /> }}
     >
       <section className="page-section trade-layout">
         <div className="trade-panel">
@@ -488,6 +500,7 @@ function Visit() {
       eyebrow="Visit"
       title="Plan a factory visit enquiry"
       intro="Discover Kudamalana in Thalgaswala by arranging a factory visit with the estate team."
+      artwork={{ variant: "visit", image: headerArt.visit, icon: <MapPin /> }}
     >
       <section className="page-section split-section image-story-section">
         <div className="visit-card">
@@ -512,6 +525,7 @@ function Contact() {
       eyebrow="Contact"
       title="Talk to Kudamalana"
       intro="Use the enquiry form for tea purchases, wholesale sourcing, samples, visit planning or general questions."
+      artwork={{ variant: "contact", image: headerArt.contact, icon: <Mail /> }}
     >
       <section className="page-section contact-layout">
         <div className="contact-card">
@@ -534,10 +548,24 @@ function Contact() {
   );
 }
 
-function StandardPage({ eyebrow, title, intro, children }) {
+function StandardPage({ eyebrow, title, intro, artwork, children }) {
   return (
     <>
-      <section className="page-hero">
+      <section
+        className={`page-hero ${artwork ? `page-hero-${artwork.variant}` : ""}`}
+      >
+        {artwork && (
+          <div className="page-hero-art" aria-hidden="true">
+            <ResponsiveImage
+              className="page-hero-art-image"
+              src={artwork.image.src}
+              alt=""
+              sizes="100vw"
+              loading="eager"
+            />
+            <span className="page-hero-art-icon">{artwork.icon}</span>
+          </div>
+        )}
         <div className="page-hero-inner">
           <Eyebrow>{eyebrow}</Eyebrow>
           <h1>{title}</h1>
@@ -774,7 +802,12 @@ function EnquiryForm() {
 function NotFound() {
   usePageMeta("Page not found | Kudamalana Tea Estate", "The requested Kudamalana page could not be found.");
   return (
-    <StandardPage eyebrow="Not Found" title="This page is not available" intro="Use the main navigation to continue exploring Kudamalana.">
+    <StandardPage
+      eyebrow="Not Found"
+      title="This page is not available"
+      intro="Use the main navigation to continue exploring Kudamalana."
+      artwork={{ variant: "contact", image: headerArt.contact, icon: <Leaf /> }}
+    >
       <section className="page-section center-only">
         <CTA to="/">Return Home</CTA>
       </section>
