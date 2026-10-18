@@ -6,7 +6,7 @@ export const estate = {
   mapAddress: "Kudamalana Tea Factory, Mapalagama Central, Thalgaswala, Galle, Sri Lanka",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Kudamalana%20Tea%20Factory%2C%20Mapalagama%20Central%2C%20Thalgaswala%2C%20Galle%2C%20Sri%20Lanka",
   mapEmbedUrl: "https://www.google.com/maps?q=Kudamalana%20Tea%20Factory%2C%20Mapalagama%20Central%2C%20Thalgaswala%2C%20Galle%2C%20Sri%20Lanka&output=embed",
-  region: "Ruhuna low-grown tea region",
+  region: "Low-Grown Ruhuna tea region",
   factoryRegistration: "MF0259",
   founded: "1919",
   phones: ["091 4203 449", "071 1254 964"],
@@ -14,7 +14,7 @@ export const estate = {
   stats: [
     { label: "Factory history", value: "Since 1919" },
     { label: "Factory registration", value: "MF0259" },
-    { label: "Tea region", value: "Ruhuna" },
+    { label: "Tea region", value: "Low-Grown Ruhuna" },
     { label: "Food safety", value: "ISO 22000:2018" },
     { label: "Staff", value: "30+" },
     { label: "Supplier network", value: "300+" }
@@ -31,7 +31,7 @@ export const images = {
   hills: {
     src: "/factory-ai/kudamalana-estate-panorama.webp",
     alt: "Kudamalana Tea Factory among coconut palms and tea fields",
-    caption: "Kudamalana Tea Factory and the surrounding Ruhuna landscape.",
+    caption: "Kudamalana Tea Factory and the surrounding Low-Grown Ruhuna landscape.",
     source: "Kudamalana Tea Estate"
   },
   factoryExterior: {
@@ -81,7 +81,7 @@ export const factoryGallery = [
   {
     src: "/factory-ai/kudamalana-factory-aerial-hero.webp",
     alt: "Aerial view of Kudamalana Tea Factory surrounded by greenery",
-    title: "Factory in the Ruhuna landscape"
+    title: "Factory in the Low-Grown Ruhuna landscape"
   },
   {
     src: "/factory-ai/kudamalana-factory-aerial-wide.webp",
@@ -126,7 +126,7 @@ export const seo = {
   "/": {
     title: "Kudamalana Tea Estate | Low-Grown Ceylon Tea Since 1919",
     description:
-      "Discover Kudamalana in Thalgaswala, Galle: a heritage tea factory dating to 1919, producing orthodox low-grown Ceylon black tea in Sri Lanka's Ruhuna region."
+      "Discover Kudamalana in Thalgaswala, Galle: a heritage tea factory dating to 1919, producing orthodox Ceylon black tea in Sri Lanka's Low-Grown Ruhuna region."
   },
   "/our-story": {
     title: "Our Story | Kudamalana Tea Estate Since 1919",
@@ -136,10 +136,10 @@ export const seo = {
   "/estate-factory": {
     title: "Kudamalana Tea Factory MF0259 | Galle, Sri Lanka",
     description:
-      "Learn how Kudamalana produces orthodox black tea at its modernized MF0259 factory in Thalgaswala, within Sri Lanka's Ruhuna low-grown tea region."
+      "Learn how Kudamalana produces orthodox black tea at its modernized MF0259 factory in Thalgaswala, within Sri Lanka's Low-Grown Ruhuna tea region."
   },
   "/teas": {
-    title: "Kudamalana Teas | Ruhuna Low-Grown Ceylon Black Tea",
+    title: "Kudamalana Teas | Low-Grown Ruhuna Ceylon Black Tea",
     description:
       "Explore Kudamalana's black teas, including Brew by Charles, Charles Brew, Eddy's Taste and Kudamalana Kahata."
   },
@@ -156,7 +156,7 @@ export const seo = {
   "/trade": {
     title: "Wholesale Ceylon Tea | Kudamalana MF0259",
     description:
-      "Enquire about wholesale supply from Kudamalana, a Ruhuna low-grown black-tea factory with monthly capacity of up to 20,000 kg."
+      "Enquire about wholesale supply from Kudamalana, a Low-Grown Ruhuna black-tea factory with monthly capacity of up to 20,000 kg."
   },
   "/visit": {
     title: "Visit Kudamalana Tea Factory | Galle, Sri Lanka",
@@ -175,13 +175,16 @@ export const products = [
     id: "KDM-CB-BLK-SO",
     slug: "brew-by-charles",
     name: "Brew by Charles",
-    eyebrow: "Single-source low-grown tea",
+    eyebrow: "Premium single-source low-grown Ceylon tea",
     theme: "green",
+    grade: "PEKOE 1",
+    gradeName: "Pekoe 1",
+    tagline: "The Finest of Ceylon in Every Cup.",
     summary:
-      "A premium, high-liquor, low-grown, single-source and non-blended black tea from Kudamalana.",
+      "A premium single-source low-grown Ceylon black tea distinguished by its PEKOE 1 grade.",
     details:
-      "Its name honors Telikada Palliya Guruge Charles, who the estate says took stewardship of Kudamalana after its founder.",
-    facts: ["Black tea", "Unblended", "Single-source", "High liquor"],
+      "A premium single-source Ceylon black tea, carefully crafted from low-grown tea leaves and distinguished by its PEKOE 1 grade. Offering a rich, full-bodied character and a distinctive Ceylon tea experience.",
+    facts: ["PEKOE 1", "Premium black tea", "Single-source", "Low-grown Ceylon tea"],
     aliases: [],
     images: [
       {
@@ -194,13 +197,17 @@ export const products = [
     id: "KDM-CB-BLK-SO-PCH",
     slug: "charles-brew",
     name: "Charles Brew",
-    eyebrow: "Single-source low-grown tea",
+    eyebrow: "Authentic single-source low-grown Ceylon tea",
     theme: "green charles-pouch",
+    grade: "FBOPF",
+    gradeName: "Flowery Broken Orange Pekoe Fannings",
+    tagline: "Rich in Heritage. Bold in Flavour.",
+    alternativeTagline: "From Ceylon's Finest Leaves to Your Cup.",
     summary:
-      "A premium, high-liquor, low-grown, single-source and non-blended black tea from Kudamalana, presented in pouch packaging.",
+      "An authentic single-source low-grown Ceylon black tea with a rich, brisk character and FBOPF grade.",
     details:
-      "Its name honors Telikada Palliya Guruge Charles, who the estate says took stewardship of Kudamalana after its founder.",
-    facts: ["Black tea", "Unblended", "Single-source", "High liquor"],
+      "Experience the authentic richness of Ceylon with Charles Brew FBOPF, a single-source low-grown black tea from Sri Lanka. Its finely graded leaves produce a rich, brisk infusion with a bold flavour and satisfying depth, making it an excellent choice for tea lovers who appreciate a strong, distinctive cup.",
+    facts: ["FBOPF", "Single-source", "Low-grown Ceylon tea", "Bold flavour"],
     aliases: [],
     images: [
       {
@@ -213,13 +220,17 @@ export const products = [
     id: "KDM-ET-BLK-BLD",
     slug: "eddys-taste",
     name: "Eddy's Taste",
-    eyebrow: "Blended black tea",
+    eyebrow: "Blended Ceylon black tea",
     theme: "copper",
+    grade: "FBOPF",
+    gradeName: "Flowery Broken Orange Pekoe Fannings",
+    tagline: "Perfectly Blended. Wonderfully Enjoyed.",
+    alternativeTagline: "The Perfect Blend for Every Moment.",
     summary:
-      "A blended black tea named for Eddy Premasiri in Kudamalana's family story.",
+      "A carefully crafted blend of Sri Lankan black teas with a bright, full-bodied character and FBOPF grade.",
     details:
-      "The estate describes the tea around distinctive taste, richness and fresh-tea aroma.",
-    facts: ["Black tea", "Blended", "Fresh-tea aroma"],
+      "Enjoy the rich character of Ceylon tea with Eddy's Taste FBOPF, a carefully crafted blend of Sri Lankan black teas. Its finely graded tea leaves produce a bright, rich-coloured infusion with a brisk, full-bodied flavour and satisfying strength. Ideal for everyday enjoyment, whether served plain or with milk.",
+    facts: ["FBOPF", "Blended Ceylon tea", "Brisk and full-bodied", "Plain or with milk"],
     aliases: ["Eddie's Taste"],
     images: [
       {
@@ -232,13 +243,17 @@ export const products = [
     id: "KDM-KK-BLK-DLY",
     slug: "kudamalana-kahata",
     name: "Kudamalana Kahata",
-    eyebrow: "Everyday black tea",
+    eyebrow: "Everyday Ceylon black tea",
     theme: "ruby",
+    grade: "BOPF",
+    gradeName: "Broken Orange Pekoe Fannings",
+    tagline: "Strong Tea. Real Taste. Every Day.",
+    alternativeTagline: "The Strength of a Perfect Cup.",
     summary:
-      "An everyday black tea positioned by Kudamalana around a strong, high-liquor cup and fresh black-tea character.",
+      "An everyday Ceylon black tea with a quick-brewing BOPF grade and a brisk, robust character.",
     details:
-      "Kudamalana Kahata is created for a full-bodied everyday cup with the bold character associated with low-grown Ceylon black tea.",
-    facts: ["Black tea", "Everyday cup", "High liquor"],
+      "Experience the authentic strength of Ceylon tea with Kudamalana Kahata BOPF, a black tea crafted for everyday enjoyment. Its finely graded tea particles brew quickly to produce a rich, deep-coloured infusion with a brisk, robust flavour. Perfect for traditional Sri Lankan tea lovers who enjoy a strong cup, whether served plain or with milk and sugar.",
+    facts: ["BOPF", "Everyday Ceylon tea", "Quick-brewing", "Brisk and robust"],
     aliases: [],
     images: [
       {
@@ -277,7 +292,7 @@ export const timeline = [
     year: "Today",
     title: "Modern orthodox black-tea factory",
     text:
-      "Kudamalana operates as MF0259 in the Ruhuna tea-growing region, with ISO 22000:2018 food-safety certification publicly listed."
+      "Kudamalana operates as MF0259 in the Low-Grown Ruhuna tea-growing region, with ISO 22000:2018 food-safety certification publicly listed."
   }
 ];
 
@@ -295,8 +310,8 @@ export const certifications = [
     status: "Factory registration",
     body: "Sri Lanka Tea Board",
     certificate: "MF0259",
-    scope: "Kudamalana, Galle, Ruhuna",
-    treatment: "Kudamalana's factory registration in Sri Lanka's Ruhuna tea-growing region."
+    scope: "Kudamalana, Galle, Low-Grown Ruhuna",
+    treatment: "Kudamalana's factory registration in Sri Lanka's Low-Grown Ruhuna tea-growing region."
   }
 ];
 
@@ -304,7 +319,7 @@ export const faqs = [
   {
     q: "Where is Kudamalana Tea Estate?",
     a:
-      "Kudamalana is in Thalgaswala, Galle, Sri Lanka, within the Ruhuna low-grown tea region."
+      "Kudamalana is in Thalgaswala, Galle, Sri Lanka, within the Low-Grown Ruhuna tea region."
   },
   {
     q: "When was Kudamalana Tea Factory established?",

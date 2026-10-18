@@ -2199,11 +2199,13 @@ body {
   font-size: 0.84rem;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1400px) {
   .header-registration {
     display: none;
   }
+}
 
+@media (max-width: 1180px) {
   .hero h1 {
     font-size: 5.4rem;
   }
@@ -2415,6 +2417,91 @@ body {
 
   .timeline article {
     grid-template-columns: 56px 1fr;
+  }
+}
+
+/* Product identity ------------------------------------------------------- */
+
+.product-card-grade {
+  display: block;
+  width: fit-content;
+  margin: 0 0 14px;
+  border: 1px solid rgba(169, 83, 50, 0.3);
+  background: rgba(169, 83, 50, 0.06);
+  color: var(--copper);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 5px 7px;
+  text-transform: uppercase;
+}
+
+.product-copy .product-tagline {
+  position: relative;
+  margin: 0;
+  border-left: 4px solid var(--copper);
+  background:
+    repeating-linear-gradient(135deg, transparent 0, transparent 10px, rgba(26, 33, 30, 0.025) 11px),
+    var(--mist);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3.3vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.08;
+  padding: 24px 28px;
+}
+
+.product-tagline::before,
+.product-tagline::after {
+  color: var(--copper);
+}
+
+.product-tagline::before {
+  content: "\201C";
+}
+
+.product-tagline::after {
+  content: "\201D";
+}
+
+.product-grade {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 18px;
+  border-block: 1px solid var(--line);
+  padding-block: 16px;
+}
+
+.product-grade > span {
+  color: var(--copper);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.product-grade strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.product-grade small {
+  color: var(--muted-ink);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+@media (max-width: 520px) {
+  .product-grade {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .product-copy .product-tagline {
+    padding: 20px;
   }
 }
 

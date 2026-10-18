@@ -48,10 +48,10 @@ npm run build
 
 The public catalogue contains four products:
 
-1. Brew by Charles - cylindrical tin
-2. Charles Brew - red pouch
-3. Eddy's Taste - brown pouch
-4. Kudamalana Kahata - silver packet
+1. Brew by Charles - PEKOE 1, cylindrical tin
+2. Charles Brew - FBOPF, red pouch
+3. Eddy's Taste - FBOPF, brown pouch
+4. Kudamalana Kahata - BOPF, silver packet
 
 Product content is centralized in `src/data/siteData.js`. Product card and
 detail imagery shares the same warm, blended presentation treatment. Source
@@ -60,10 +60,11 @@ through `src/ResponsiveImage.jsx` and `src/data/imageManifest.json`.
 
 ## Content rules
 
-Do not add unsupported prices, pack sizes, tea grades, acreage, exact elevation,
-awards, export destinations, ownership claims, or organic certification. Keep
-ISO 22000:2018 food-safety certification distinct from statements about organic
-farming practices.
+Do not add unsupported prices, pack sizes, acreage, exact elevation, awards,
+export destinations, ownership claims, or organic certification. Product grades
+in the centralized product records are user-confirmed; do not infer grades for
+other products. Keep ISO 22000:2018 food-safety certification distinct from
+statements about organic farming practices.
 
 ## Images
 

@@ -124,7 +124,7 @@ function PageShell({ children }) {
             <small>Tea Estate</small>
           </span>
         </Link>
-        <span className="header-registration">MF0259 / RUHUNA</span>
+        <span className="header-registration">MF0259 / LOW-GROWN RUHUNA</span>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <NavLink key={item.path} to={item.path} end={item.path === "/"}>
@@ -167,7 +167,7 @@ function SiteFooter() {
           <span>{estate.name}</span>
         </Link>
         <p>
-          Low-grown Ceylon black tea from Thalgaswala, Galle, crafted in the Ruhuna tradition.
+          Ceylon black tea from Thalgaswala, Galle, crafted in the Low-Grown Ruhuna tradition.
         </p>
       </div>
       <div className="footer-grid">
@@ -239,7 +239,7 @@ function Home() {
           <h1>{estate.name}</h1>
           <p>
             A century of low-grown Ceylon tea craftsmanship, rooted in 1919 in Sri Lanka's
-            Ruhuna tea country.
+            Low-Grown Ruhuna tea country.
           </p>
           <div className="hero-actions">
             <CTA to="/teas">Explore Our Teas</CTA>
@@ -260,13 +260,13 @@ function Home() {
       </section>
 
       <section className="heritage-band" aria-label="Kudamalana heritage statement">
-        <p>"Since 1919, low-grown Ceylon tea crafted in the Ruhuna tradition."</p>
+        <p>"Since 1919, Ceylon tea crafted in the Low-Grown Ruhuna tradition."</p>
         <span>Thalgaswala, Galle • Orthodox Black Tea • MF0259</span>
       </section>
 
       <section className="page-section split-section">
         <div>
-          <SectionIntro eyebrow="Our Heritage" title="A century in the Ruhuna tea country">
+          <SectionIntro eyebrow="Our Heritage" title="A century in Low-Grown Ruhuna tea country">
             From its beginnings in 1919, Kudamalana has grown around generations of tea making in
             Thalgaswala, Galle. Today the factory operates as MF0259 and continues its focus on
             low-grown orthodox black tea.
@@ -276,7 +276,7 @@ function Home() {
           <span className="panel-icon"><Factory size={26} /></span>
           <h3>Orthodox black tea from MF0259</h3>
           <p>
-            A modernized factory in Sri Lanka's Ruhuna region, producing low-grown Ceylon black tea
+            A modernized factory in Sri Lanka's Low-Grown Ruhuna region, producing Ceylon black tea
             through the traditional orthodox process.
           </p>
           <CTA to="/estate-factory" variant="text">See the Factory</CTA>
@@ -373,8 +373,8 @@ function EstateFactory() {
   return (
     <StandardPage
       eyebrow="Estate & Factory"
-      title="MF0259 in Sri Lanka's Ruhuna low-grown tea country"
-      intro="Kudamalana is a modernized orthodox black-tea factory in Sri Lanka's Ruhuna low-grown tea country."
+      title="MF0259 in Sri Lanka's Low-Grown Ruhuna tea country"
+      intro="Kudamalana is a modernized orthodox black-tea factory in Sri Lanka's Low-Grown Ruhuna tea country."
       artwork={{ variant: "factory", image: headerArt.factory, icon: <Factory /> }}
     >
       <section className="page-section split-section image-story-section">
@@ -404,7 +404,7 @@ function EstateFactory() {
       </section>
       <section className="page-section">
         <SectionIntro eyebrow="Factory Photography" title="Kudamalana from above and on site">
-          Explore the factory, solar-panel roofline and surrounding Ruhuna landscape.
+          Explore the factory, solar-panel roofline and surrounding Low-Grown Ruhuna landscape.
         </SectionIntro>
         <FactoryGallery />
       </section>
@@ -437,7 +437,7 @@ function ProductDetail() {
     if (!product) navigate("/teas", { replace: true });
   }, [navigate, product]);
 
-  const title = product ? `${product.name} | Kudamalana Black Tea` : seo["/teas"].title;
+  const title = product ? `${product.name} ${product.grade} | Kudamalana Ceylon Tea` : seo["/teas"].title;
   const description = product ? product.summary : seo["/teas"].description;
   usePageMeta(title, description);
 
@@ -453,6 +453,11 @@ function ProductDetail() {
       <section className="page-section product-detail">
         <ProductVisual product={product} large />
         <div className="product-copy">
+          <p className="product-tagline">{product.tagline}</p>
+          <div className="product-grade">
+            <span>Tea grade</span>
+            <strong>{product.grade} <small>({product.gradeName})</small></strong>
+          </div>
           <p>{product.details}</p>
           {product.aliases.length > 0 && (
             <p className="muted-text">Also seen as: {product.aliases.join(", ")}</p>
@@ -561,7 +566,7 @@ function Trade() {
           <h2>Trade at a glance</h2>
           <ul>
             <li>Factory registration: MF0259</li>
-            <li>Region: Ruhuna low-grown tea country</li>
+            <li>Region: Low-Grown Ruhuna tea country</li>
             <li>Process: orthodox black tea</li>
             <li>Full capacity: 20,000 kg/month</li>
             <li>Food-safety certification: ISO 22000:2018, CCFS 076</li>
@@ -685,7 +690,7 @@ function StandardPage({ eyebrow, title, intro, artwork, children }) {
         </div>
         <div className="page-hero-meta" aria-label="Estate details">
           <span>Factory <strong>MF0259</strong></span>
-          <span>Origin <strong>Ruhuna</strong></span>
+          <span>Origin <strong>Low-Grown Ruhuna</strong></span>
           <span>Since <strong>1919</strong></span>
         </div>
       </section>
@@ -704,6 +709,7 @@ function ProductGrid({ limit }) {
           <div>
             <p>{product.eyebrow}</p>
             <h3>{product.name}</h3>
+            <small className="product-card-grade">Grade {product.grade}</small>
             <span>
               View tea <ChevronRight size={16} aria-hidden="true" />
             </span>
