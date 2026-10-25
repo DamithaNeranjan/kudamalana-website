@@ -2826,6 +2826,73 @@ body {
   }
 }
 
+/* Responsive corrections: retain the existing theme and motion system. */
+
+.contact-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.contact-card a,
+.footer-grid a {
+  overflow-wrap: anywhere;
+}
+
+.contact-card a svg {
+  flex-shrink: 0;
+}
+
+.product-photo.large .product-photo-stage {
+  min-width: 0;
+  width: 100%;
+}
+
+.mobile-nav {
+  max-height: calc(100vh - 88px);
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.lightbox-figure img {
+  max-height: min(82vh, calc(100dvh - 124px));
+}
+
+@media (max-width: 1180px) {
+  .trade-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1180px) {
+  .contact-card h2,
+  .visit-card h2 {
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+  }
+}
+
+@media (max-width: 820px) {
+  .enquiry-form input,
+  .enquiry-form select,
+  .enquiry-form textarea {
+    min-width: 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: clamp(2.5rem, 14vw, 3.25rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 13vw, 3rem);
+  }
+
+  .contact-card h2 {
+    font-size: min(2.25rem, 10vw);
+  }
+}
+
 /* Motion system ---------------------------------------------------------- */
 
 .hero-content,

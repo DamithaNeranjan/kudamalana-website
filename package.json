@@ -7,7 +7,10 @@
     "dev": "vite",
     "images:optimize": "node scripts/optimize-images.mjs",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "npm run build && playwright test",
+    "test:e2e:report": "playwright show-report",
+    "qa:capture": "node scripts/capture-site.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.3",
@@ -18,6 +21,7 @@
     "vite": "^7.1.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "sharp": "^0.35.5"
   }
 }

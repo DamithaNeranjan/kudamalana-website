@@ -9,8 +9,11 @@ export const estate = {
   region: "Low-Grown Ruhuna tea region",
   factoryRegistration: "MF0259",
   founded: "1919",
-  phones: ["091 4203 449", "071 1254 964"],
-  email: "kudamalana@gmail.com",
+  phones: [
+    { display: "(+94) 91 4203 449", href: "tel:+94914203449" },
+    { display: "(+94) 71 1254 964", href: "tel:+94711254964" }
+  ],
+  email: "kudamalana.info@kudamalana.lk",
   stats: [
     { label: "Factory history", value: "Since 1919" },
     { label: "Factory registration", value: "MF0259" },

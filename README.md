@@ -13,7 +13,7 @@ quality information, trade enquiries, visit information, and contact details.
 - Intersection Observer-based scroll reveals with reduced-motion support
 - Lazy-loaded Google Maps embed and directions link for the factory location
 - Frontend-only enquiry forms that open a prefilled email to
-  `kudamalana@gmail.com`
+  `kudamalana.info@kudamalana.lk`
 
 ## Local development
 
@@ -108,3 +108,39 @@ fields together if the public factory listing changes.
 
 The project is configured for local development and production builds only. No
 hosting or publishing workflow is included.
+
+## Browser regression tests
+
+Install the development dependencies and browser bundles once:
+
+```sh
+npm install
+npx playwright install chromium firefox webkit
+```
+
+Run `npm run test:e2e` to build the production site and test all three browser
+engines. Playwright starts a local production preview on port 4173, or reuses
+one already running there outside CI. Run `npm run test:e2e:report` to view the
+HTML results. To select engines, use:
+
+```sh
+npm run test:e2e -- --project=chromium --project=webkit
+```
+
+The suite covers all 13 routes at 12 representative widths from 320 to 2560px
+and 16 additional breakpoint widths. It also checks navigation, gallery focus
+and controls, contact validation, every enquiry type, encoded email handoff,
+touch interaction, map configuration, reduced motion, local assets, metadata,
+and reflow at the CSS viewport equivalent of 200% desktop zoom.
+
+Enquiry tests intercept the prepared mailto link so no email app is launched
+and no message is sent. Automated map tests stub Google responses for
+repeatability; actual third-party availability is a separate smoke check.
+
+For before/after screenshots and visible-content comparison, start a production
+preview and run `npm run qa:capture -- baseline` before editing, then
+`npm run qa:capture -- updated` afterward. Captures and diagnostic reports go
+in ignored `qa-artifacts/`; browser results go in ignored `test-results/` and
+`playwright-report/`. Keep the baseline when comparing subsequent changes.
+
+See `QA_REPORT.md` for this change's verification results and environment limits.

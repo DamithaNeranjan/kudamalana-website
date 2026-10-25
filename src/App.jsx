@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import ResponsiveImage from "./ResponsiveImage";
 import { Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import {
@@ -104,6 +104,7 @@ function useScrollReveal(pathname) {
 
 function PageShell({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef(null);
   const location = useLocation();
   useScrollReveal(location.pathname);
 
@@ -111,6 +112,27 @@ function PageShell({ children }) {
     setMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1101px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMenuOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
 
   return (
     <>
@@ -134,17 +156,20 @@ function PageShell({ children }) {
         </nav>
         <button
           className="icon-button menu-button"
+          ref={menuButton}
           type="button"
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </header>
       {menuOpen && (
-        <nav className="mobile-nav" aria-label="Mobile navigation">
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
           {navItems.map((item) => (
-            <NavLink key={item.path} to={item.path} end={item.path === "/"}>
+            <NavLink key={item.path} to={item.path} end={item.path === "/"} onClick={() => setMenuOpen(false)}>
               {item.label}
             </NavLink>
           ))}
@@ -186,8 +211,9 @@ function SiteFooter() {
         <div>
           <strong>Contact</strong>
           <a href={`mailto:${estate.email}`}>{estate.email}</a>
-          <a href="tel:+94914203449">091 4203 449</a>
-          <a href="tel:+94711254964">071 1254 964</a>
+          {estate.phones.map((phone) => (
+            <a key={phone.href} href={phone.href}>{phone.display}</a>
+          ))}
         </div>
       </div>
     </footer>
@@ -647,8 +673,8 @@ function Contact() {
           <p>{estate.location}</p>
           <a href={`mailto:${estate.email}`}><Mail size={18} /> {estate.email}</a>
           {estate.phones.map((phone) => (
-            <a key={phone} href={`tel:+94${phone.replace(/\D/g, "").slice(1)}`}>
-              <Phone size={18} /> {phone}
+            <a key={phone.href} href={phone.href}>
+              <Phone size={18} /> {phone.display}
             </a>
           ))}
           <a href={estate.mapUrl} target="_blank" rel="noreferrer">
@@ -722,35 +748,61 @@ function ProductGrid({ limit }) {
 
 function FactoryGallery() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const dialog = useRef(null);
+  const openingTrigger = useRef(null);
+  const isOpen = activeIndex !== null;
   const activePhoto = activeIndex === null ? null : factoryGallery[activeIndex];
 
   useEffect(() => {
-    if (activeIndex === null) return undefined;
+    if (!isOpen) return undefined;
+    const trigger = openingTrigger.current;
 
     function handleKeyDown(event) {
-      if (event.key === "Escape") setActiveIndex(null);
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setActiveIndex(null);
+      }
+      if (event.key === "Tab") {
+        const buttons = [...dialog.current.querySelectorAll("button")];
+        const first = buttons[0];
+        const last = buttons[buttons.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
       if (event.key === "ArrowLeft") {
+        event.preventDefault();
         setActiveIndex((index) => (index === 0 ? factoryGallery.length - 1 : index - 1));
       }
       if (event.key === "ArrowRight") {
+        event.preventDefault();
         setActiveIndex((index) => (index === factoryGallery.length - 1 ? 0 : index + 1));
       }
     }
 
     document.body.classList.add("lightbox-open");
+    dialog.current.querySelector("button").focus();
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.classList.remove("lightbox-open");
       window.removeEventListener("keydown", handleKeyDown);
+      if (trigger?.isConnected) trigger.focus({ preventScroll: true });
     };
-  }, [activeIndex]);
+  }, [isOpen]);
 
   return (
     <>
       <div className="factory-gallery">
         {factoryGallery.map((photo, index) => (
           <figure key={photo.src} className="factory-gallery-item">
-            <button type="button" onClick={() => setActiveIndex(index)}>
+            <button type="button" onClick={(event) => {
+              openingTrigger.current = event.currentTarget;
+              setActiveIndex(index);
+            }}>
               <ResponsiveImage src={photo.src} alt={photo.alt} sizes="(max-width: 820px) 100vw, (max-width: 1100px) 50vw, 33vw" />
               <span>View large</span>
             </button>
@@ -759,7 +811,7 @@ function FactoryGallery() {
         ))}
       </div>
       {activePhoto && (
-        <div className="photo-lightbox" role="dialog" aria-modal="true" aria-label={`${activePhoto.title} enlarged photo`}>
+        <div ref={dialog} className="photo-lightbox" role="dialog" aria-modal="true" aria-label={`${activePhoto.title} enlarged photo`}>
           <button className="lightbox-close" type="button" onClick={() => setActiveIndex(null)} aria-label="Close enlarged photo">
             <X size={24} />
           </button>
@@ -877,21 +929,25 @@ function EnquiryForm() {
     }
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length === 0) {
-      window.location.href = mailto;
+      const emailLink = document.createElement("a");
+      emailLink.href = mailto;
+      emailLink.click();
+    } else {
+      event.currentTarget.elements.namedItem(Object.keys(nextErrors)[0])?.focus();
     }
   }
 
   return (
     <form className="enquiry-form" onSubmit={submit} noValidate>
       <label>
-        Name
-        <input name="name" value={form.name} onChange={updateField} autoComplete="name" />
-        {errors.name && <span className="form-error">{errors.name}</span>}
+        <span id="name-label">Name</span>
+        <input name="name" value={form.name} onChange={updateField} autoComplete="name" aria-labelledby="name-label" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "name-error" : undefined} />
+        {errors.name && <span id="name-error" className="form-error" role="alert">{errors.name}</span>}
       </label>
       <label>
-        Email
-        <input name="email" value={form.email} onChange={updateField} autoComplete="email" />
-        {errors.email && <span className="form-error">{errors.email}</span>}
+        <span id="email-label">Email</span>
+        <input type="email" inputMode="email" name="email" value={form.email} onChange={updateField} autoComplete="email" aria-labelledby="email-label" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
+        {errors.email && <span id="email-error" className="form-error" role="alert">{errors.email}</span>}
       </label>
       <label>
         Enquiry type
@@ -905,9 +961,9 @@ function EnquiryForm() {
         </select>
       </label>
       <label>
-        Message
-        <textarea name="message" value={form.message} onChange={updateField} rows="6" />
-        {errors.message && <span className="form-error">{errors.message}</span>}
+        <span id="message-label">Message</span>
+        <textarea name="message" value={form.message} onChange={updateField} rows="6" aria-labelledby="message-label" aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-error" : undefined} />
+        {errors.message && <span id="message-error" className="form-error" role="alert">{errors.message}</span>}
       </label>
       <button className="submit-button" type="submit">
         <Send size={18} />
