@@ -35,6 +35,56 @@ for (const route of routes) {
   });
 }
 
+test("product cards keep equal widths across the mobile breakpoint", async ({ page }, testInfo) => {
+  for (const route of ["/", "/teas"]) {
+    await visit(page, route);
+    for (const width of [320, 360, 390, 430, 480, 515, 516, 517, 519, 520, 521, 600, 768, 820, 821, 1180, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await revealPage(page);
+      const cards = page.locator(".product-card");
+      const cardWidths = await cards.evaluateAll((nodes) => nodes.map((node) => node.getBoundingClientRect().width));
+      expect(Math.max(...cardWidths) - Math.min(...cardWidths), `${route} card widths at ${width}px: ${cardWidths}`).toBeLessThanOrEqual(1);
+      if (width <= 820) {
+        const gridWidth = await page.locator(".product-grid").evaluate((node) => node.getBoundingClientRect().width);
+        const expectedWidth = width <= 520 ? Math.min(440, gridWidth) : gridWidth;
+        for (const cardWidth of cardWidths) expect(Math.abs(cardWidth - expectedWidth), `${route} card should fill its available width at ${width}px`).toBeLessThanOrEqual(1);
+      }
+      if (width === 516) {
+        await page.locator(".product-grid").screenshot({ path: testInfo.outputPath(`${route === "/" ? "home" : "teas"}-cards-516.png`) });
+      }
+    }
+  }
+});
+
+test("product detail photos stay inside their frames on small screens", async ({ page }, testInfo) => {
+  for (const route of routes.filter((route) => route.startsWith("/teas/"))) {
+    await visit(page, route);
+    for (const width of [320, 360, 375, 390, 430, 516, 520, 521, 600, 768, 820]) {
+      await page.setViewportSize({ width, height: 667 });
+      await revealPage(page);
+      const dimensions = await page.locator(".product-photo.large .product-photo-stage").evaluate((stage) => {
+        const image = stage.querySelector("img");
+        const frame = stage.getBoundingClientRect();
+        const photo = image.getBoundingClientRect();
+        return {
+          top: photo.top - frame.top,
+          bottom: frame.bottom - photo.bottom,
+          left: photo.left - frame.left,
+          right: frame.right - photo.right,
+          fit: getComputedStyle(image).objectFit
+        };
+      });
+      for (const edge of ["top", "bottom", "left", "right"]) {
+        expect(dimensions[edge], `${route}: photo ${edge} edge at ${width}px`).toBeGreaterThanOrEqual(-1);
+      }
+      expect(dimensions.fit).toBe("contain");
+      if (width === 375 && route === "/teas/brew-by-charles") {
+        await page.locator(".product-photo.large").screenshot({ path: testInfo.outputPath("brew-by-charles-375.png") });
+      }
+    }
+  }
+});
+
 test("contact values and link destinations agree everywhere", async ({ page }) => {
   await visit(page, "/contact");
   for (const scope of [page.locator(".contact-card"), page.locator("footer")]) {

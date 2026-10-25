@@ -22,7 +22,7 @@
 
 ## Coverage and evidence
 
-- Final regression run: **58 passed** (29 Chromium, 29 WebKit), with zero
+- Regression run for the initial update: **58 passed** (29 Chromium, 29 WebKit), with zero
   failures, using the production build. Firefox could not start; see below.
   Each engine checks 364 route/width combinations plus 13 zoom-equivalent
   reflow cases, along with the interaction scenarios below.
@@ -70,3 +70,30 @@
   7.3.6 and source-map-js 1.2.1. Those versions were already locked before this
   change; dependency upgrades were kept outside this visual/functional update.
 - No hosting configuration or deployment was changed.
+
+## Follow-up: consistent product-card widths
+
+- Reproduced the reported sizing problem: the mobile cards used automatic
+  horizontal margins without an explicit width, allowing shorter product text
+  to shrink the card. At 320px Eddy's Taste measured 202.69px wide while the
+  other cards measured 284px.
+- Added `width: 100%` to the existing mobile card rule, retaining its 440px cap
+  and centered position. No content, colors, images, or animations changed.
+- New regression checks equal widths and expected available width on Home and
+  Teas at 17 sizes from 320–1440px, including 515, 516, 517, 519, 520, and
+  521px. Both Chromium and WebKit tests pass (68 route/viewport/browser cases).
+  Captured and inspected the corrected 516px product grids. Production build
+  and whitespace checks pass. The Firefox limitation above still applies.
+
+## Follow-up: full product photos on mobile
+
+- Reproduced the Brew by Charles bottom crop: the portrait image's automatic
+  height exceeded the square frame on narrow screens, which clipped it.
+- At widths up to 820px, constrain the image height to its frame and remove
+  its automatic minimum height. Existing `object-fit: contain` preserves the
+  complete image and its proportions; frame dimensions, desktop styling,
+  artwork, and animation rules are unchanged.
+- Both Chromium and WebKit containment tests pass for all four product-detail
+  photos at 11 widths from 320–820px (88 route/viewport/browser cases), including
+  375px. Inspected screenshots from both engines show the complete tin base.
+  Production build and whitespace checks pass.
